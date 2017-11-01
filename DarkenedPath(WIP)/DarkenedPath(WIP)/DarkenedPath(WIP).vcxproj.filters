@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Game State">
+      <UniqueIdentifier>{0ae66c4e-b911-422c-a8ac-2ca833abf747}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game State\Game States">
+      <UniqueIdentifier>{4fdc5d61-3b2e-4972-9d9d-665c8cca1ad5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,13 +30,67 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameStateManager.h">
+      <Filter>Game State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateTable.h">
+      <Filter>Game State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFlags.h">
+      <Filter>Game State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Game State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateFactory.h">
+      <Filter>Game State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateDigiPenLogo.h">
+      <Filter>Game State\Game States</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateGameOver.h">
+      <Filter>Game State\Game States</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateMainMenu.h">
+      <Filter>Game State\Game States</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateTextAdventure.h">
+      <Filter>Game State\Game States</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DarkenedPath(WIP).cpp">
+    <ClCompile Include="GameStateFactory.cpp">
+      <Filter>Game State</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateManager.cpp">
+      <Filter>Game State</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateTable.cpp">
+      <Filter>Game State</Filter>
+    </ClCompile>
+    <ClCompile Include="DarkenedPath%28WIP%29.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Game State</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFlags.cpp">
+      <Filter>Game State</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateTextAdventure.cpp">
+      <Filter>Game State\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateMainMenu.cpp">
+      <Filter>Game State\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateGameOver.cpp">
+      <Filter>Game State\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateDigiPenLogo.cpp">
+      <Filter>Game State\Game States</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
