@@ -2,7 +2,7 @@
 filename    main.c
 author      Justin Chambers
 DP email    justin.chambers@digipen.edu
-course      GAM100 ** Do not use this code in your team project
+course      GAM100 
 
 Brief Description:
 This file implements the main function and game loop.

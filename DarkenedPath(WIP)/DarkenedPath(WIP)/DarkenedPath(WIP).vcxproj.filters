@@ -19,30 +19,18 @@
     <Filter Include="Game State\Game States">
       <UniqueIdentifier>{4fdc5d61-3b2e-4972-9d9d-665c8cca1ad5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{cfe84f0d-aefd-48de-9753-911a5faf4837}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameStateManager.h">
       <Filter>Game State</Filter>
     </ClInclude>
     <ClInclude Include="GameStateTable.h">
-      <Filter>Game State</Filter>
-    </ClInclude>
-    <ClInclude Include="GameFlags.h">
-      <Filter>Game State</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Game State</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateFactory.h">
       <Filter>Game State</Filter>
     </ClInclude>
     <ClInclude Include="GameStateDigiPenLogo.h">
@@ -54,17 +42,17 @@
     <ClInclude Include="GameStateMainMenu.h">
       <Filter>Game State\Game States</Filter>
     </ClInclude>
-    <ClInclude Include="GameStateTextAdventure.h">
-      <Filter>Game State\Game States</Filter>
+    <ClInclude Include="Utils.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Platform</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateFactory.cpp">
-      <Filter>Game State</Filter>
-    </ClCompile>
     <ClCompile Include="GameStateManager.cpp">
       <Filter>Game State</Filter>
     </ClCompile>
@@ -74,15 +62,6 @@
     <ClCompile Include="DarkenedPath%28WIP%29.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Game State</Filter>
-    </ClCompile>
-    <ClCompile Include="GameFlags.cpp">
-      <Filter>Game State</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateTextAdventure.cpp">
-      <Filter>Game State\Game States</Filter>
-    </ClCompile>
     <ClCompile Include="GameStateMainMenu.cpp">
       <Filter>Game State\Game States</Filter>
     </ClCompile>
@@ -91,6 +70,12 @@
     </ClCompile>
     <ClCompile Include="GameStateDigiPenLogo.cpp">
       <Filter>Game State\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.c">
+      <Filter>Platform</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

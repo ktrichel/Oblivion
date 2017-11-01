@@ -9,6 +9,7 @@
 /******************************************************************************/
 
 #include "stdafx.h"
+#include "windows.h"
 #include "GameStateMainMenu.h"
 #include "GameStateManager.h"
 #include "Utils.h"

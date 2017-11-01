@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-	\file   GameStateTextAdventure.h
+	\file   Utils.h
 	\author Doug Schilling
 	\par    Course: GAM100
 	\par    Copyright © 2016 DigiPen (USA) Corporation.
@@ -11,8 +11,7 @@
 #pragma once
 
 #ifdef __cplusplus
-extern "C" {
-	/* Assume C declarations for C++ */
+extern "C" {	/* Assume C declarations for C++ */
 #endif
 
 /*------------------------------------------------------------------------------
@@ -31,20 +30,11 @@ extern "C" {
 // Public Functions:
 //----------------------------------------------------------------------------*/
 
-/*!
- \brief
- */
-extern void GameStateTextAdventureInit();
+void ScreenTransition();
 
-/*!
- \param	dt Change in time (in seconds) since last game loop.
- */
-extern void GameStateTextAdventureUpdate(float dt);
+void ClearScreen();
 
-/*!
- \brief
- */
-extern void GameStateTextAdventureExit();
+void Wait(long waitTime);
 
 /*----------------------------------------------------------------------------*/
 
