@@ -39,25 +39,6 @@ int main()
 	/* Exit the game state manager. */
 	GameStateManagerExit();
 
-
-
-	/* TODO REQUIRED: Move the following variables to GameStateTextAdventure. */
-#if 0
-#endif
-
-	/* TODO REQUIRED: Move the following function calls to GameStateTextAdventureInit(). */
-#if 0
-#endif
-
-	/* TODO REQUIRED: Move the code _inside_ the while-loop to GameStateTextAdventureUpdate().
-	The while-loop itself is no longer needed! */
-#if 0
-#endif
-
-	/* TODO REQUIRED: Move the clean up and exit code to GameStateTextAdventureExit(). */
-#if 0
-#endif
-
 	/* cleanly exit */
 	return 0;
 }

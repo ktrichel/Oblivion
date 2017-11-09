@@ -12,6 +12,7 @@
 #include "GameStateGameOver.h"
 #include "GameStateManager.h"
 #include "Utils.h"
+#include <Windows.h>
 
 /*------------------------------------------------------------------------------
 // Private Consts:
@@ -48,20 +49,20 @@ void GameStateGameOverUpdate(float dt)
 	/* Tell the compiler that the 'dt' variable is unused. */
 	UNREFERENCED_PARAMETER(dt);
 
-	/* TODO BASIC: Print the message "Press ENTER to continue..." to the screen. */
+	/* Print the message "Press ENTER to continue..." to the screen. */
 
-	/* TODO : Wait for the user to press ENTER. */
+	/* Wait for the user to press ENTER. */
 	getchar();
 
-	/* TODO REQUIRED: Tell the game state manager to switch to the Main Menu state. */
+	/* Tell the game state manager to switch to the Main Menu state. */
 }
 
 void GameStateGameOverExit()
 {
-	/* TODO ADVANCED: Implement an interesting screen transition effect. See function definition in Utils.c. */
+	/* Implement an interesting screen transition effect. See function definition in Utils.c. */
 	/*ScreenTransition();*/
 
-	/* TODO BASIC: Call the utility function to clear the screen (See Utils.h). */
+	/* Call the utility function to clear the screen (See Utils.h). */
 }
 
 /*------------------------------------------------------------------------------

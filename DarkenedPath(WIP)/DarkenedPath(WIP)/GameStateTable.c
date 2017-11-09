@@ -15,7 +15,6 @@
 /* Include all game state headers here. */
 #include "GameStateDigiPenLogo.h"
 #include "GameStateMainMenu.h"
-#include "GameStateTextAdventure.h"
 #include "GameStateGameOver.h"
 
 /*------------------------------------------------------------------------------
@@ -52,7 +51,6 @@ static const GameStateTableEntry GameStateTab[GsMax] =
 	/* Main Menu */
 	{ GameStateMainMenuInit, GameStateMainMenuUpdate, GameStateMainMenuExit },
 	/* Text Adventure */
-	{ GameStateTextAdventureInit, GameStateTextAdventureUpdate, GameStateTextAdventureExit },
 	/* Game Over */
 	{ GameStateGameOverInit, GameStateGameOverUpdate, GameStateGameOverExit },
 };

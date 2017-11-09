@@ -53,29 +53,29 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameStateManager.cpp">
-      <Filter>Game State</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateTable.cpp">
-      <Filter>Game State</Filter>
-    </ClCompile>
-    <ClCompile Include="DarkenedPath%28WIP%29.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateMainMenu.cpp">
-      <Filter>Game State\Game States</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateGameOver.cpp">
-      <Filter>Game State\Game States</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateDigiPenLogo.cpp">
-      <Filter>Game State\Game States</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Platform</Filter>
-    </ClCompile>
     <ClCompile Include="Utils.c">
       <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.c">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="DarkenedPath%28WIP%29.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateTable.c">
+      <Filter>Game State</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateManager.c">
+      <Filter>Game State</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateDigiPenLogo.c">
+      <Filter>Game State\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateGameOver.c">
+      <Filter>Game State\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateMainMenu.c">
+      <Filter>Game State\Game States</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -148,13 +148,13 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DarkenedPath%28WIP%29.cpp" />
-    <ClCompile Include="GameStateDigiPenLogo.cpp" />
-    <ClCompile Include="GameStateGameOver.cpp" />
-    <ClCompile Include="GameStateMainMenu.cpp" />
-    <ClCompile Include="GameStateManager.cpp" />
-    <ClCompile Include="GameStateTable.cpp" />
-    <ClCompile Include="stdafx.cpp">
+    <ClCompile Include="DarkenedPath%28WIP%29.c" />
+    <ClCompile Include="GameStateDigiPenLogo.c" />
+    <ClCompile Include="GameStateGameOver.c" />
+    <ClCompile Include="GameStateMainMenu.c" />
+    <ClCompile Include="GameStateManager.c" />
+    <ClCompile Include="GameStateTable.c" />
+    <ClCompile Include="stdafx.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

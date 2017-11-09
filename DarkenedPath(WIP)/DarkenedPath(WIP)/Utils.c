@@ -8,12 +8,13 @@
  */
 /******************************************************************************/
 
+#include "stdafx.h" /* NULL, malloc/free, printf, strcmp, */
+
 #pragma warning(push)
 #pragma warning(disable: 4001)
 #include <time.h>
 #pragma warning(pop)
 
-#include "stdafx.h" /* NULL, malloc/free, printf, strcmp, */
 #include "Utils.h"
 
 /*------------------------------------------------------------------------------
@@ -61,7 +62,7 @@ void ClearScreen()
 /* Wait for a specified number of milliseconds. */
 void Wait(long waitTime)
 {
-	clock_t	wakeTime;
+	clock_t wakeTime;
 	wakeTime = waitTime + clock();
 	while (wakeTime > clock())
 	{
