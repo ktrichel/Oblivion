@@ -27,21 +27,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameStateManager.h">
-      <Filter>Game State</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateTable.h">
-      <Filter>Game State</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateDigiPenLogo.h">
-      <Filter>Game State\Game States</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateGameOver.h">
-      <Filter>Game State\Game States</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateMainMenu.h">
-      <Filter>Game State\Game States</Filter>
-    </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>Platform</Filter>
     </ClInclude>
@@ -50,6 +35,24 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStatePlay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateMainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateGameOver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateDigiPenLogo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateTable.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +78,9 @@
       <Filter>Game State\Game States</Filter>
     </ClCompile>
     <ClCompile Include="GameStateMainMenu.c">
+      <Filter>Game State\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStatePlay.c">
       <Filter>Game State\Game States</Filter>
     </ClCompile>
   </ItemGroup>
