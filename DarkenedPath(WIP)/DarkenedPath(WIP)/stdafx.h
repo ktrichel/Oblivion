@@ -11,7 +11,8 @@
 #include <tchar.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <Windows.h>
+#include <windows.h>
+#include "Utils.h"
 
 
 

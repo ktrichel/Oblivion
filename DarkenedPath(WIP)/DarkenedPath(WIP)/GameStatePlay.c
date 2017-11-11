@@ -1,5 +1,6 @@
 //sudo apt - get install libncurses5 - dev
 //#include<curses.h>
+#include "stdafx.h"
 #include "GameStatePlay.h"
 
 typedef struct
@@ -16,19 +17,44 @@ GameState* gameState; /* The game state, reflecting the user's progress */
 /* CommandData* command; The command entered by the user */
 
 char player_input;
+
 void GetInput()
 {
+	int choice;
 	while (gameState != GsQuit)
 	{
 		player_input = getchar();
+		if (player_input == 'q' || player_input == 'Q')
+		{
+			GameStatePause();
+			printf("Would you like to quit?\n");
+			printf("(Y)es\n(N)o\n");
+			choice = getchar();
+			if (choice == 'y' || choice == 'Y')
+			{
+				GameStateManagerSetNextState(GsQuit);
+			}
+			else if (choice == 'n' || choice == 'N')
+			{
+				GameStateResume();
+			}
+			else
+			{
+				getchar();
+			}
+		}
 	}
+}
+
+void GameStatePlayExit()
+{
 }
 
 void GameStatePlayInit()
 {
 	/* Create the initial game objects. */
-	gameState = CreateInitialGameState();
-	//worldData = CreateInitialWorldData();
+	/*gameState = CreateInitialGameState(); */
+	/*worldData = CreateInitialWorldData(); */
 	//commandList = CreateCommandList();
 
 	/* Initialize the commands. */
@@ -39,29 +65,19 @@ void GameStatePlayInit()
 	//WorldData_PrintIntroduction(worldData, gameState->currentRoomIndex);
 
 }
+void GameStatePause() 
+{
+	ClearScreen();
+}
 
+void GameStateResume()
+{
+	printf("resumed");
+}
 void GameStatePlayUpdate(float dt)
 {
 	/* Tell the compiler that the 'dt' variable is unused. */
 	UNREFERENCED_PARAMETER(dt);
 
 	GetInput();
-	if (player_input == 'q' || player_input == 'Q')
-	{
-		GameStatePause();
-		printf("Would you like to quit?");
-		int choice = getchar();
-		if (choice == 'yes' || choice == 'y' || choice == 'Y')
-		{
-			gameState = GsMainMenu;
-		}
-		else if (choice == 'no' || choice == 'n' || choice == 'No' || choice == 'N')
-		{
-			GameStateResume();
-		}
-		else
-		{
-			getchar();
-		}
-	}
 }

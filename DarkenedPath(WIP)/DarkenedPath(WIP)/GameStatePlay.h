@@ -11,6 +11,12 @@ void GetInput();
 
 void GameStatePlayInit();
 
+void GameStatePause();
+
+void GameStateResume();
+
+void GameStatePlayExit();
+
 void GameStatePlayUpdate(float dt);
 
 #ifdef __cplusplus
