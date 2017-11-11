@@ -1,8 +1,6 @@
 //sudo apt - get install libncurses5 - dev
 //#include<curses.h>
-#include "stdafx.h"
-#include "GameStateTable.h" /* struct GameState */
-#include "GameStateManager.h" 
+#include "GameStatePlay.h"
 
 typedef struct
 {
@@ -63,7 +61,7 @@ void GameStatePlayUpdate(float dt)
 		}
 		else
 		{
-			;
+			getchar();
 		}
 	}
 }
