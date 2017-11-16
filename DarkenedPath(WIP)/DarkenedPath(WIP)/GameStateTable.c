@@ -52,16 +52,16 @@ static const GameStateTableEntry GameStateTab[GsMax] =
 {
 	/* DigiPen Logo */
 	{ GameStateDigiPenLogoInit, GameStateDigiPenLogoUpdate, GameStateDigiPenLogoExit },
-	/* Miku */
-	{GameStateMikuInit, GameStateMikuUpdate, GameStateMikuExit },
 	/* Main Menu */
 	{ GameStateMainMenuInit, GameStateMainMenuUpdate, GameStateMainMenuExit },
+	/* Story Transition Screen */
+	{ GameStateStoryInit, GameStateStoryUpdate, GameStateStoryExit },
 	/* Text Adventure */
 	{ GameStatePlayInit, GameStatePlayUpdate, GameStatePlayExit },
 	/* Pause */
 	{ GameStatePauseInit, GameStatePauseUpdate, GameStatePauseExit },
-	/* Story Transition Screen */
-	{ GameStateStoryInit, GameStateStoryUpdate, GameStateStoryExit },
+	/* Miku */
+	{ GameStateMikuInit, GameStateMikuUpdate, GameStateMikuExit },
 	/* Game Over */
 	{ GameStateGameOverInit, GameStateGameOverUpdate, GameStateGameOverExit },
 };

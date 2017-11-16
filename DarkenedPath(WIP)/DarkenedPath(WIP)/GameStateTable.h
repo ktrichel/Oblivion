@@ -28,11 +28,11 @@ extern "C" {	/* Assume C declarations for C++ */
 
 		/* Normal Game States: */
 		GsDigiPenLogo,
-		GsMiku,
 		GsMainMenu,
+		GsStory,
 		GsPlay,
 		GsPause,
-		GsStory,
+		GsMiku,
 		GsGameOver,
 
 		/* Bookkeeping States: */
