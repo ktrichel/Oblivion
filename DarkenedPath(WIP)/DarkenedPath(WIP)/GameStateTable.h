@@ -28,6 +28,7 @@ extern "C" {	/* Assume C declarations for C++ */
 
 		/* Normal Game States: */
 		GsDigiPenLogo,
+		GsMiku,
 		GsMainMenu,
 		GsPlay,
 		GsPause,

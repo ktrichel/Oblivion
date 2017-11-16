@@ -17,6 +17,15 @@ int main()
 	/* ------------------------------------------------------------------------ */
 	/* Initilization and Setup */
 	/* ------------------------------------------------------------------------ */
+	HWND console = GetConsoleWindow();
+	RECT r;
+	GetWindowRect(console, &r); //stores the console's current dimensions
+
+	MoveWindow(console, r.left, r.top, 1000, 500, TRUE); // 800 width, 100 height
+
+	HWND consoleWindow = GetConsoleWindow();
+
+	SetWindowPos(consoleWindow, 0, 350, 250, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
 
 	/* Initialize the game state manager. */
 	GameStateManagerInit();

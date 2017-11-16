@@ -1,6 +1,11 @@
 #include "stdafx.h"
 #include "GameStatePause.h"
 
+struct MyStruct
+{
+	int word;
+};
+
 void GameStatePauseInit()
 {
 }

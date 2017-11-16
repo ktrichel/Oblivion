@@ -14,6 +14,7 @@
 
 /* Include all game state headers here. */
 #include "GameStateDigiPenLogo.h"
+#include "GameStateMiku.h"
 #include "GameStateMainMenu.h"
 #include "GameStateGameOver.h"
 #include "GameStatePlay.h"
@@ -50,6 +51,8 @@ static const GameStateTableEntry GameStateTab[GsMax] =
 {
 	/* DigiPen Logo */
 	{ GameStateDigiPenLogoInit, GameStateDigiPenLogoUpdate, GameStateDigiPenLogoExit },
+	/* Miku */
+	{GameStateMikuInit, GameStateMikuUpdate, GameStateMikuExit },
 	/* Main Menu */
 	{ GameStateMainMenuInit, GameStateMainMenuUpdate, GameStateMainMenuExit },
 	/* Text Adventure */
