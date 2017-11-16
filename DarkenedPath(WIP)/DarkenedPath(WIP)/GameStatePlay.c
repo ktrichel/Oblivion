@@ -40,9 +40,8 @@ void GameStatePlayUpdate(float dt)
 	UNREFERENCED_PARAMETER(dt);
 
 
-	printf("Enter Command: ");
-
-	char player_input = getchar();
+	printf("Enter Command\n>> ");
+	char player_input = getch();
 
 	if (player_input == 'q' || player_input == 'Q')
 	{
@@ -50,8 +49,8 @@ void GameStatePlayUpdate(float dt)
 	}
 
 	// flush the buffer
-	while (getchar() != '\n')
-	{
+	//while (getch() != '\n')
+	//{
 		// intentionally left blank
-	}
+	//}
 }

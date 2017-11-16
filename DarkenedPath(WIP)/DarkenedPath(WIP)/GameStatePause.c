@@ -18,7 +18,7 @@ void GameStatePauseUpdate(float dt)
 	//Wait(500);
 
 
-	printf("Would you like to quit?\n");
+	printf("Would you like to return to the Main Menu?\n");
 	printf("(Y)es\n(N)o\n>> ");
 
 	char choice = getchar();
@@ -36,6 +36,7 @@ void GameStatePauseUpdate(float dt)
 	}
 	else
 	{
+		ClearScreen();
 		printf("Please input y or n\n");
 	}
 
