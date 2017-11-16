@@ -7,11 +7,11 @@
 extern "C" {	/* Assume C declarations for C++ */
 #endif
 
-void GameStatePlayInit();
+	void GameStatePauseInit();
 
-void GameStatePlayExit();
+	void GameStatePauseExit();
 
-void GameStatePlayUpdate(float dt);
+	void GameStatePauseUpdate(float dt);
 
 #ifdef __cplusplus
 }                       /* End of extern "C" { */

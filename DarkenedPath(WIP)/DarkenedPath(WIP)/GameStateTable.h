@@ -30,6 +30,7 @@ extern "C" {	/* Assume C declarations for C++ */
 		GsDigiPenLogo,
 		GsMainMenu,
 		GsPlay,
+		GsPause,
 		GsGameOver,
 
 		/* Bookkeeping States: */

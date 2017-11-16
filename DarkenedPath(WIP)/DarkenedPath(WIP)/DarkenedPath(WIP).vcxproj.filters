@@ -54,6 +54,9 @@
     <ClInclude Include="GameStateTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameStatePause.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utils.c">
@@ -81,6 +84,9 @@
       <Filter>Game State\Game States</Filter>
     </ClCompile>
     <ClCompile Include="GameStatePlay.c">
+      <Filter>Game State\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStatePause.c">
       <Filter>Game State\Game States</Filter>
     </ClCompile>
   </ItemGroup>

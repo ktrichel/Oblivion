@@ -17,6 +17,7 @@
 #include "GameStateMainMenu.h"
 #include "GameStateGameOver.h"
 #include "GameStatePlay.h"
+#include "GameStatePause.h"
 
 /*------------------------------------------------------------------------------
 // Private Consts:
@@ -53,6 +54,8 @@ static const GameStateTableEntry GameStateTab[GsMax] =
 	{ GameStateMainMenuInit, GameStateMainMenuUpdate, GameStateMainMenuExit },
 	/* Text Adventure */
 	{ GameStatePlayInit, GameStatePlayUpdate, GameStatePlayExit },
+	/* Pause */
+	{ GameStatePauseInit, GameStatePauseUpdate, GameStatePauseExit },
 	/* Game Over */
 	{ GameStateGameOverInit, GameStateGameOverUpdate, GameStateGameOverExit },
 };

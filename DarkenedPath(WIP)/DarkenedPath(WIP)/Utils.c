@@ -42,14 +42,21 @@
 //----------------------------------------------------------------------------*/
 
 /* Perform a screen transition effect. */
-void ScreenTransition()
+void ScreenTransition(int length)
 {
-	printf("\n\n\n\n");
-	for (int i = 0; i < 20; ++i)
+	ClearScreen();
+	for (int j = 0; j < length; j++)
 	{
-		Wait(50);
-		printf("\n");
+		ClearScreen();
+		printf("Loading");
+		for (int i = 0; i < 3; ++i)
+		{
+			Wait(100);
+			printf(".");
+			Wait(50);
+		}
 	}
+
 }
 
 /* Clear the screen. */

@@ -95,7 +95,7 @@ void GameStateDigiPenLogoUpdate(float dt)
 void GameStateDigiPenLogoExit()
 {
 	/* Implement an interesting screen transition effect. See function definition in Utils.c. */
-	ScreenTransition();
+	ScreenTransition(5);
 
 	/* Call the utility function to clear the screen (See Utils.h). */
 	ClearScreen();
