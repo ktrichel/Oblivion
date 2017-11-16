@@ -144,6 +144,7 @@
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="GameStatePause.h" />
     <ClInclude Include="GameStatePlay.h" />
+    <ClInclude Include="GameStateStory.h" />
     <ClInclude Include="GameStateTable.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="GameStateManager.c" />
     <ClCompile Include="GameStatePause.c" />
     <ClCompile Include="GameStatePlay.c" />
+    <ClCompile Include="GameStateStory.c" />
     <ClCompile Include="GameStateTable.c" />
     <ClCompile Include="stdafx.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
