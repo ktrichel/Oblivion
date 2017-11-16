@@ -73,7 +73,7 @@ void GameStateMainMenuUpdate(float dt)
 		else if (option == 'q' || option == 'Q')
 		{
 			/* Tell the game state manager to quit the game (GsQuit). */
-			GameStateManagerSetNextState(GsQuit);
+			GameStateManagerSetNextState(GsMiku);
 		}
 		else
 		{

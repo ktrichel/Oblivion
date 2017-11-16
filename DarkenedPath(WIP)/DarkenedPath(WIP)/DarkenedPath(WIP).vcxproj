@@ -160,6 +160,7 @@
     <ClCompile Include="GameStatePlay.c" />
     <ClCompile Include="GameStateStory.c" />
     <ClCompile Include="GameStateTable.c" />
+    <ClCompile Include="GameStateMiku.c" />
     <ClCompile Include="stdafx.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -95,5 +95,8 @@
     <ClCompile Include="GameStateStory.c">
       <Filter>Game State\Game States</Filter>
     </ClCompile>
+    <ClCompile Include="GameStateMiku.c">
+      <Filter>Game State\Game States</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
