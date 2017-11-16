@@ -28,5 +28,11 @@ void GameStateStoryExit()
 }
 void GameStateStoryUpdate(float dt)
 {
+	UNREFERENCED_PARAMETER(dt);
 
+	printf("\nPress Enter to continue...");
+	
+	getchar();
+
+	GameStateManagerSetNextState(GsPlay);
 }

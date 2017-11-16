@@ -67,7 +67,7 @@ void GameStateMainMenuUpdate(float dt)
 		if (option == 'p' || option == 'P')
 		{
 			/* Tell the game state manager to switch to the GsTextAdventure state. */
-			GameStateManagerSetNextState(GsPlay);
+			GameStateManagerSetNextState(GsStory);
 		}
 		/* Check for 'q' or 'Q' to be entered. */
 		else if (option == 'q' || option == 'Q')
