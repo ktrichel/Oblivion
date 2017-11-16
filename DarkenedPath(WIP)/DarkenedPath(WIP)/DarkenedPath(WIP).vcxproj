@@ -150,6 +150,7 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\GameStateDigiPenLogo2.cpp" />
     <ClCompile Include="DarkenedPath%28WIP%29.c" />
     <ClCompile Include="GameStateDigiPenLogo.c" />
     <ClCompile Include="GameStateGameOver.c" />

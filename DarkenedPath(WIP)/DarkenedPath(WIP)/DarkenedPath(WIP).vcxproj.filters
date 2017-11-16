@@ -89,5 +89,8 @@
     <ClCompile Include="GameStatePause.c">
       <Filter>Game State\Game States</Filter>
     </ClCompile>
+    <ClCompile Include="..\GameStateDigiPenLogo2.cpp">
+      <Filter>Game State\Game States</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
