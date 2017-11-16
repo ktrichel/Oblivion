@@ -74,9 +74,6 @@
     <ClCompile Include="GameStateManager.c">
       <Filter>Game State</Filter>
     </ClCompile>
-    <ClCompile Include="GameStateDigiPenLogo.c">
-      <Filter>Game State\Game States</Filter>
-    </ClCompile>
     <ClCompile Include="GameStateGameOver.c">
       <Filter>Game State\Game States</Filter>
     </ClCompile>
@@ -89,7 +86,7 @@
     <ClCompile Include="GameStatePause.c">
       <Filter>Game State\Game States</Filter>
     </ClCompile>
-    <ClCompile Include="..\GameStateDigiPenLogo2.cpp">
+    <ClCompile Include="GameStateDigiPenLogo.c">
       <Filter>Game State\Game States</Filter>
     </ClCompile>
   </ItemGroup>

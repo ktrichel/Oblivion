@@ -1,18 +1,15 @@
 /******************************************************************************/
 /*!
-	\file   GameStateDigiPenLogo.c
-	\author Doug Schilling
-	\par    Course: GAM100
-	\par    Copyright © 2016 DigiPen (USA) Corporation.
-	\brief
- */
+\file   GameStateDigiPenLogo.c
+\author Doug Schilling
+\par    Course: GAM100
+\par    Copyright © 2016 DigiPen (USA) Corporation.
+\brief
+*/
 /******************************************************************************/
-
 #include "stdafx.h"
 #include "GameStateDigiPenLogo.h"
 #include "GameStateManager.h"
-#include "Utils.h"
-#include <Windows.h>
 
 /*------------------------------------------------------------------------------
 // Private Consts:
@@ -29,27 +26,26 @@
 /*------------------------------------------------------------------------------
 // Private Variables:
 //----------------------------------------------------------------------------*/
-
 static const char * DigiPenLogo[] =
 {
-"                                _______                  ________              ",
-"             /### /#######     |       \\                |        \\             ",
-"             /### /#########   |        \\  _          _ |   ___   |            ",
-"             /### /##########  |    |    ||_|        |_||         |            ",
-"             /### /########### |    |    | _   ____   _ |    ____/____   _____ ",
-"             /### /########### |    |    || | /    \\ | ||   |    /    \\ |     \\",
-"             /### /##########  |    |    || ||  __  || ||   |   |  --  ||     |",
-"             /### /#########   |        / | ||      || ||   |   |  ____||  |  |",
-"             /### /#######/    |_______/  |_| \\___  ||_||___|    \\____\\ |__|__|",
-"    /####### /### ///////                     /     |                          ",
-"  /######### /###                             \\____/                           ",
-" /########## /###                                                              ",
-"/########### /###                                                              ",
-"/########### /###      _____ ___   ___ __  _  __ ___ __ __       _     _  _    ",
-"//########## /### ||\\||_  | | | | | | |__ | ||__  | |__|  |_||\\|| ||  | || _|_|",
-" //######### /### || |__| | | | |_| | |__ |_||    | |__|__| || ||_||__|_||_| | ",
-"  ///####### /###                                                              ",
-"    ///////  ///                                                               ",
+	"                                _______                  ________              ",
+	"             /### /#######     |       \\                |        \\             ",
+	"             /### /#########   |        \\  _          _ |   ___   |            ",
+	"             /### /##########  |    |    ||_|        |_||         |            ",
+	"             /### /########### |    |    | _   ____   _ |    ____/____   _____ ",
+	"             /### /########### |    |    || | /    \\ | ||   |    /    \\ |     \\",
+	"             /### /##########  |    |    || ||  __  || ||   |   |  --  ||     |",
+	"             /### /#########   |        / | ||      || ||   |   |  ____||  |  |",
+	"             /### /#######/    |_______/  |_| \\___  ||_||___|    \\____\\ |__|__|",
+	"    /####### /### ///////                     /     |                          ",
+	"  /######### /###                             \\____/                           ",
+	" /########## /###                                                              ",
+	"/########### /###                                                              ",
+	"/########### /###      _____ ___   ___ __  _  __ ___ __ __       _     _  _    ",
+	"//########## /### ||\\||_  | | | | | | |__ | ||__  | |__|  |_||\\|| ||  | || _|_|",
+	" //######### /### || |__| | | | |_| | |__ |_||    | |__|__| || ||_||__|_||_| | ",
+	"  ///####### /###                                                              ",
+	"    ///////  ///                                                               ",
 };
 
 /*------------------------------------------------------------------------------
@@ -62,19 +58,29 @@ static const char * DigiPenLogo[] =
 
 void GameStateDigiPenLogoInit()
 {
-	/* Print the DigiPen Logo to the screen. */
+	HANDLE  hConsole;
+	int k = 4;
+	int j;
+	int w;
+	w = 15;
 
-	/* First, determine the number of lines in the logo.  Hint "_countof(DigiPenLogo)" */
-	_countof(DigiPenLogo);
 
-	/* Second, print each line in the DigiPenLogo[] array. */
-	for (size_t i = 0; i < _countof(DigiPenLogo); i++)
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+
+	/* you can loop k higher to see more color choices */
+	/* if echo does not work delete for look and set k = a value i.e k=4 */
+
+	for (j = 0; j < _countof(DigiPenLogo); j++)
 	{
-		printf("%s", DigiPenLogo[i]);
-	}
+		SetConsoleTextAttribute(hConsole, k);
 
-	/* Third, print a couple extra blank lines. */
-	printf("\n\n");
+		printf("%s\n", DigiPenLogo[j]);
+	}
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, w);
+	Wait(500);
+	return 0;
 }
 
 void GameStateDigiPenLogoUpdate(float dt)
@@ -104,4 +110,3 @@ void GameStateDigiPenLogoExit()
 /*------------------------------------------------------------------------------
 // Private Functions:
 //----------------------------------------------------------------------------*/
-
