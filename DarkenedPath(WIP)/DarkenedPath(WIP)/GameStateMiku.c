@@ -102,17 +102,22 @@ static const char * Miku[] =
 
 void GameStateMikuInit()
 {
-
+	/*------------------------------------------------------------------------------
+	// Setting Windows Console Size
+	//----------------------------------------------------------------------------*/
 	HWND console = GetConsoleWindow();
 	RECT r;
 	GetWindowRect(console, &r); //stores the console's current dimensions
 
-	MoveWindow(console, r.left, r.top, 1300, 1500, TRUE); // 800 width, 100 height
+	MoveWindow(console, r.left, r.top, 1300, 1500, TRUE); // 1300 width, 1500 height
 
 	HWND consoleWindow = GetConsoleWindow();
 
 	SetWindowPos(consoleWindow, 0, 300, 0, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
 
+	/*------------------------------------------------------------------------------
+	// Setting Windows Console Text Color
+	//----------------------------------------------------------------------------*/
 	HANDLE  hConsole;
 	int k = 11;
 	int j;
