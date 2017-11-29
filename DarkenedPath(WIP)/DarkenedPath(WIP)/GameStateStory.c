@@ -1,117 +1,126 @@
 #include "stdafx.h"
 #include "GameStateStory.h"
+#include "Character.h"
 
+static int chp;
 
 void GameStateStoryInit()
 {
-	
+
 }
+
 void GameStateStoryExit()
 {
 	ScreenTransition(2);
 
 	ClearScreen();
 }
+
 void GameStateStoryUpdate(float dt)
 {
 	UNREFERENCED_PARAMETER(dt);
-	int gender;
-	char name[20] = "";
-	char choice;
-	char choice2;
-	//printf("%s", chp1.stm1);
-	printf("Are you lost? Do you remember if you with your (m)om, or your (d)ad?\n>> ");
-	choice = getchar();
-	while (getchar() != '\n')
-	{
+  switch (chp)
+  {
+  case 1:
+    printf("works");
+    break;
+  default:
+    Chapter1();
+  }
+}
 
-	}
-	do {
-		if (toupper(choice )== 'M')
-		{
-			gender = 0;
-			ClearScreen();
-		}
-		else if (toupper(choice )== 'D')
-		{
-			gender = 1;
-			ClearScreen();
-		}
-		else
-		{
-			ClearScreen();
-			printf("Please tell me if you have Mommy or Daddy issues. I need to know!\n");
-			choice = getchar();
-			while (getchar() != '\n')
-			{
+void Chapter1()
+{
+  CHARACTER c;
+  char name[20] = "";
+  char parent[4] = "";
+  char choice;
+  char choice2;
+  printf("Are you lost? Do remember who you were last with?\n");
+  printf("Mom?\nDad?\n>>");
 
-			}
-		}
-	} while (toupper(choice) != 'M' && toupper(choice) != 'D');
+  do
+  {
+    scanf("%3s", parent);
+    while (getchar() != '\n');
+    strupr(parent);
 
-	//printf("%s", chp1.stm2);
-	printf("Try to find a torch to look around this dark place. Maybe we can find them together!\n");
-	getchar();
-	ClearScreen();
+    if (strcmp(parent, "MOM") == 0)
+    {
+      printf("So you were with your mom?\n(Y)es\n(N)o\n>>");
+      choice = getchar();
+      while (getchar() != '\n');
+    }
+    else if (strcmp(parent, "DAD") == 0)
+    {
+      printf("So you were with your dad?\n(Y)es\n(N)o\n>>");
+      choice = getchar();
+      while (getchar() != '\n');
+    }
+    else
+    {
+      printf("Were you with your mom or your dad?\n>>");
+      continue;
+    }
 
-	//printf("%s", chp1.stm3);
-	printf("*You pick up a torch*\n");
-	getchar();
-	ClearScreen();
+    if (toupper(choice) == 'N')
+    {
+      printf("Oh? Then who were you with?\n>>");
+    }
+    else if (toupper(choice) != 'Y')
+    {
+      printf("Please type Y or N\n>>");
+      choice = getchar();
+      while (getchar() != '\n');
+    }
 
-	//printf("%s", chp1.stm4);
-	printf("Oh hey I forgot to ask, what would you like me to call you?\n>> ");
-	scanf("%s", name);
-	while (getchar() != '\n')
-	{
+  } while (toupper(choice) != 'Y');
 
-	}
-	ClearScreen();
+  ClearScreen();
+  printf("Well, lets try to find a torch to look around this dark place. Maybe we can find them together!\n");
+  getchar();
+  ClearScreen();
 
-	//printf("%s %s", name, chp1.stm5);
-	do
-	{
-		printf("%s right?\n(Y)es\n(N)o\n>> ", name);
-		choice2 = getchar();
-		while (getchar() != '\n')
-		{
+  printf("*You pick up a torch*\n");
+  getchar();
+  ClearScreen();
 
-		}
-		if (toupper(choice2) == 'N')
-		{
-			ClearScreen();
-			printf("Then what would you like to be called?\n");
-			scanf("%s", name);
-			while (getchar() != '\n')
-			{
+  printf("Oh hey I forgot to ask, what would you like me to call you?\n>> ");
+  scanf("%s", name);
+  while (getchar() != '\n');
+  *name = toupper(*name);
+  strcpy(c.name, name);
+  printf("DEBUG: %s", c.name);
+  getchar();
+  ClearScreen();
 
-			}
-			ClearScreen();
-		}
-	} while (toupper(choice2) != 'Y');
+  do
+  {
+    printf("%s right?\n(Y)es\n(N)o\n>> ", name);
+    choice2 = getchar();
+    while (getchar() != '\n');
 
+    if (toupper(choice2) == 'N')
+    {
+      ClearScreen();
+      printf("Then what would you like to be called?\n");
+      scanf("%s", name);
+      while (getchar() != '\n');
 
-	if (gender == 1)
-	{
-		ClearScreen();
-		//printf("%s %s", name, chp1.stm7);
-		printf("%s is such a cool name!\n", name);
-		getchar();
-	}
-	else if (gender == 0)
-	{
-		ClearScreen();
-		//printf("%s %s", name, chp1.stm6);
-		printf("%s is such a beautiful name!\n", name);
-		getchar();
-	}
+      ClearScreen();
+    }
+  } while (toupper(choice2) != 'Y');
 
-	//printf("%s", chp1.stm8);
-	ClearScreen();
-	printf("I think I hear someone. I hope  you're ready to get us out of here!\n\n\n\n\n\n\n\n\n\n");
-	printf("\nPress Enter to continue...");
-	
-	getchar();
+  ClearScreen();
+  printf("That's a nice name, happy to meet you %s!\n", name);
+  getchar();
+  ClearScreen();
 
-	GameStateManagerSetNextState(GsPlay);
+  printf("I think I hear someone. I hope  you're ready to get us out of here!\n\n\n\n\n\n\n\n\n\n");
+  printf("\nPress Enter to continue...");
+
+  getchar();
+
+  chp = 1;
+  GameStateManagerSetNextState(GsPlay);
 }

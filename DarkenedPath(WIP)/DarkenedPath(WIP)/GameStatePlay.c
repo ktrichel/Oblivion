@@ -8,8 +8,6 @@
 /* CommandList* commandList;  The set of supported commands */
 /* CommandData* command; The command entered by the user */
 
-int player;
-int enemy;
 
 void GameStatePlayExit()
 {
@@ -31,8 +29,19 @@ void GameStatePlayInit()
 
 	/* Print the world introduction. */
 	//WorldData_PrintIntroduction(worldData, gameState->currentRoomIndex);
-	player = 0;
-	enemy = 0;
+	//player = 0;
+	//enemy = 0;
+  CHARACTER player;
+  printf("DEBUG: %s", player.name);
+  getchar();
+  player.health = 10;
+  player.defense = 2;
+  player.attack = 3;
+  CHARACTER enemy1 = { "Grunt", 5, 2, 3 };
+
+  printf("DEBUG: %s %i %i %i\n", enemy1.name, enemy1.health, enemy1.defense, enemy1.attack);
+  printf("DEBUG: %s %i %i %i\n", player.name, player.health, player.defense, player.attack);
+  getchar();
 }
 /*
 void calcDmg()
@@ -58,6 +67,7 @@ void GameStatePlayUpdate(float dt)
 	}
 	else if (toupper(player_input) == 'A')
 	{
+    /*
 		srand(time(NULL));
 		r = (rand() % 5) + 1;
 		printf("\nPlayer attacks for %i damage\n", r);
@@ -86,14 +96,18 @@ void GameStatePlayUpdate(float dt)
 			Wait(1000);
 			GameStateManagerSetNextState(GsMainMenu);
 		}
+    */
 	}
 	/*else if (player_input == 'a' || player_input == 'A')
 	{ 
 		calcDmg();
 	}*/
+
+  /*
 	// flush the buffer
-	//while (getch() != '\n')
-	//{
+	while (getch() != '\n')
+	{
 		// intentionally left blank
-	//}
+	}
+  */
 }
