@@ -2,7 +2,6 @@
 #include "GameStateStory.h"
 #include "Character.h"
 
-static int chp;
 
 void GameStateStoryInit()
 {
@@ -19,14 +18,10 @@ void GameStateStoryExit()
 void GameStateStoryUpdate(float dt)
 {
 	UNREFERENCED_PARAMETER(dt);
-  switch (chp)
-  {
-  case 1:
-    printf("works");
-    break;
-  default:
-    Chapter1();
-  }
+  FILE *chp;
+  chp = fopen("")
+
+  Chapter1();
 }
 
 void Chapter1()
@@ -121,6 +116,5 @@ void Chapter1()
 
   getchar();
 
-  chp = 1;
   GameStateManagerSetNextState(GsPlay);
 }
