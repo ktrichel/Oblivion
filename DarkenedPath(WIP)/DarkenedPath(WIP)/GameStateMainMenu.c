@@ -97,20 +97,21 @@ void GameStateMainMenuUpdate(float dt)
 
     if (IsDebuggerPresent())
     {
-      FILE *chp;
-      chp = fopen("chp.txt", "w");
-      char ch;
-      if (chp == NULL)
-      {
-        printf("Cannot open file for writing.\n");
-        exit(0);
-      }
-
-      fprintf(chp, "%c", '1');
-
-      fclose(chp);
       if (toupper(option) == 'S')
       {
+        FILE *chp;
+        chp = fopen("chp.txt", "w");
+        char ch;
+        if (chp == NULL)
+        {
+          printf("Cannot open file for writing.\n");
+          exit(0);
+        }
+
+        fprintf(chp, "%c", '1');
+
+        fclose(chp);
+
         strcpy(name, "Bob");
 
         GameStateManagerSetNextState(GsPlay);
