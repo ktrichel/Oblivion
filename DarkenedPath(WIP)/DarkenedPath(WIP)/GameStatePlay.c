@@ -145,6 +145,10 @@ void GameStatePlayUpdate(float dt)
     ClearScreen();
     printf("HELP: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
   }
+  else if (toupper(player_input) == 'B')
+  {
+    GameStateManagerSetNextState(GsStory);
+  }
 }
 
 void GameStatePlayExit()
