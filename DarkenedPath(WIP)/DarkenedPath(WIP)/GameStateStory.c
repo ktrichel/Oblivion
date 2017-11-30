@@ -22,7 +22,7 @@ void GameStateStoryUpdate(float dt)
   switch (chp)
   {
   case 1:
-    printf("works");
+	Chapter2();
     break;
   default:
     Chapter1();
@@ -83,7 +83,7 @@ void Chapter1()
   getchar();
   ClearScreen();
 
-  printf("*You pick up a torch*\n");
+  printf("*You pick up the torch*\n");
   getchar();
   ClearScreen();
 
@@ -123,4 +123,13 @@ void Chapter1()
 
   chp = 1;
   GameStateManagerSetNextState(GsPlay);
+}
+
+void Chapter2()
+{
+	printf("I'm glad we finally made it out of that dark place!\n I hope you're ready for your new adventure out in the real world.");
+	ClearScreen();
+	printf("There is  a long and windy path that goes through a large thicket.\n You can also see the path exit the forest up a mountain with a large castle on top.");
+	ClearScreen();
+	printf("We have a long way to go until we make it to our father's castle. They weren't as kind to me and Mom as they were to you.");
 }
