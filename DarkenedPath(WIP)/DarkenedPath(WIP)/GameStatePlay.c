@@ -41,7 +41,7 @@ void calcDmg()
   r = (rand() % 3) + 1;
 
   printf("You ready the torch you picked up to fight.\n");
-  printf("The grunt is wearing mismatched pieces of armor and a rusty sword, it's clear that they were unprepared for you to be here.\n");
+  printf("The grunt is wearing a black tabard with an indistinguishable red insignia and has a rusty sword at the ready; it's clear that he was unprepared for you to be here.\n");
   printf("You have three options:\n1: normal strike\n2. heavy strike\n3. dodge");
 
 	player.health -= (enemy1.attack - player.defense);
@@ -77,6 +77,10 @@ void GameStatePlayUpdate(float dt)
   {
     ClearScreen();
     printf("HELP: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
+  }
+  else if (toupper(player_input) == 'B')
+  {
+    GameStateManagerSetNextState(GsStory);
   }
 }
 

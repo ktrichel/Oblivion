@@ -19,6 +19,8 @@ extern "C" {	/* Assume C declarations for C++ */
 	void GameStateStoryUpdate(float dt); 
 
 	void Chapter1();
+  
+	void Chapter2();
 
 #ifdef __cplusplus
 }                       /* End of extern "C" { */
