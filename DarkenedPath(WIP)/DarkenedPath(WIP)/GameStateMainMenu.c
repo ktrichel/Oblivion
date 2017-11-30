@@ -13,6 +13,7 @@
 #include "GameStateMainMenu.h"
 #include "GameStateManager.h"
 #include "Utils.h"
+#include "GameStateStory.h"
 
 /*------------------------------------------------------------------------------
 // Private Consts:
@@ -64,13 +65,13 @@ void GameStateMainMenuUpdate(float dt)
 		int option = getchar();
 
 		/* Check for 'p' or 'P' to be entered. */
-		if (option == 'p' || option == 'P')
+		if (toupper(option) == 'P')
 		{
 			/* Tell the game state manager to switch to the GsTextAdventure state. */
 			GameStateManagerSetNextState(GsStory);
 		}
 		/* Check for 'q' or 'Q' to be entered. */
-		else if (option == 'q' || option == 'Q')
+		else if (toupper(option) == 'Q')
 		{
 			/* Tell the game state manager to quit the game (GsQuit). */
 			GameStateManagerSetNextState(GsMiku);
@@ -80,6 +81,16 @@ void GameStateMainMenuUpdate(float dt)
 			/* Display an error message if an invalid command is entered. */
 			printf("Invalid Command! Press P or Q\n");
 		}
+
+    if (IsDebuggerPresent())
+    {
+      if (toupper(option) == 'S')
+      {
+        strcpy(name, "Bob");
+
+        GameStateManagerSetNextState(GsPlay);
+      }
+    }
 
 		// flush the buffer
 		while (getchar() != '\n')

@@ -3,111 +3,86 @@
 #include "stdafx.h"
 #include "Character.h"
 #include "GameStatePlay.h"
-/* GameState* gameState; The game state, reflecting the user's progress */
-/* WorldData* worldData; The world data */ 
-/* CommandList* commandList;  The set of supported commands */
-/* CommandData* command; The command entered by the user */
 
+/*************************************************************************
+*                        Struct Declarations                             *
+**************************************************************************/
+CHARACTER enemy1 = { "Grunt", 5, 1, 3 };
+CHARACTER player;
+
+/*************************************************************************
+*                          Global Variables                              *
+**************************************************************************/
+int *firstTime;
+
+void GameStatePlayInit()
+{
+  strcpy(player.name, name);
+  player.health = 10;
+  player.defense = 0;
+  player.attack = 2;
+
+  if (firstTime != 0)
+  {
+    firstTime = 1;
+  }
+  else
+  {
+    firstTime = 0;
+  }
+}
+
+
+
+void calcDmg()
+{
+  int r;
+  srand(time(NULL));
+  r = (rand() % 3) + 1;
+
+  printf("You ready the torch you picked up to fight.\n");
+  printf("The grunt is wearing mismatched pieces of armor and a rusty sword, it's clear that they were unprepared for you to be here.\n");
+  printf("You have three options:\n1: normal strike\n2. heavy strike\n3. dodge");
+
+	player.health -= (enemy1.attack - player.defense);
+	enemy1.health -= (player.attack - enemy1.defense);
+}
+
+
+void GameStatePlayUpdate(float dt)
+{
+	/* Tell the compiler that the 'dt' variable is unused. */
+	UNREFERENCED_PARAMETER(dt);
+  printf("A grunt appears and won't let you leave the dungeon.\n");
+  if (firstTime)
+  {
+    printf("HINT: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
+    printf("Press 'h' at anytime to be reminded of the controls.\n");
+    firstTime = 0;
+  }
+	printf("Enter Command\n>> ");
+	char player_input = getch();
+
+	if (toupper(player_input) == 'Q')
+	{
+    ClearScreen();
+		GameStateManagerSetNextState(GsPause);
+	}
+	else if (toupper(player_input) == 'A')
+	{
+    ClearScreen();
+    calcDmg();
+	}
+  else if (toupper(player_input) == 'H')
+  {
+    ClearScreen();
+    printf("HELP: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
+  }
+}
 
 void GameStatePlayExit()
 {
 	ScreenTransition(2);
 
 	ClearScreen();
-}
-
-void GameStatePlayInit()
-{
-	/* Create the initial game objects. */
-	/*gameState = CreateInitialGameState(); */
-	/*worldData = CreateInitialWorldData(); */
-	//commandList = CreateCommandList();
-
-	/* Initialize the commands. */
-	//command.commandList = commandList;
-	//command.context = CommandContext_User;
-
-	/* Print the world introduction. */
-	//WorldData_PrintIntroduction(worldData, gameState->currentRoomIndex);
-	//player = 0;
-	//enemy = 0;
-  CHARACTER player;
-  printf("DEBUG: %s", player.name);
-  getchar();
-  player.health = 10;
-  player.defense = 2;
-  player.attack = 3;
-  CHARACTER enemy1 = { "Grunt", 5, 2, 3 };
-
-  printf("DEBUG: %s %i %i %i\n", enemy1.name, enemy1.health, enemy1.defense, enemy1.attack);
-  printf("DEBUG: %s %i %i %i\n", player.name, player.health, player.defense, player.attack);
-  getchar();
-}
-/*
-void calcDmg()
-{
-	player.health = player.health - (player.defense - enemy1.attack);
-	enemy1.health = enemy1.health - (enemy1.defense - player.attack);
-}
-*/
-
-void GameStatePlayUpdate(float dt)
-{
-	/* Tell the compiler that the 'dt' variable is unused. */
-	UNREFERENCED_PARAMETER(dt);
-	int r;
-/*	printf("%s:\nHealth - %d\nDefense - %d\nStrength - %d\n\n", player.name, player.health, player.defense, player.attack);
-	printf("%s:\nHealth - %d\nDefense - %d\nStrength - %d\n\n", enemy1.name, enemy1.health, enemy1.defense, enemy1.attack); */
-	printf("Enter Command\n>> ");
-	char player_input = getch();
-
-	if (toupper(player_input) == 'Q')
-	{
-		GameStateManagerSetNextState(GsPause);
-	}
-	else if (toupper(player_input) == 'A')
-	{
-    /*
-		srand(time(NULL));
-		r = (rand() % 5) + 1;
-		printf("\nPlayer attacks for %i damage\n", r);
-		player += r;
-		Wait(500);
-		r = (rand() % 5) + 1;
-		printf("Enemy retaliates with %i damage\n", r);
-		enemy += r;
-
-
-		if (player >= 20)
-		{
-			printf("Congratulations you killed the enemy!\n");
-			Wait(500);
-			do
-			{
-				printf("(R)estart?\n");
-				player_input = getch();
-			} while (toupper(player_input) != 'R');
-			GameStatePlayInit();
-			ClearScreen();
-		}
-		else if (enemy >= 20)
-		{
-			printf("Oh no, the enemy killed you!\n");
-			Wait(1000);
-			GameStateManagerSetNextState(GsMainMenu);
-		}
-    */
-	}
-	/*else if (player_input == 'a' || player_input == 'A')
-	{ 
-		calcDmg();
-	}*/
-
-  /*
-	// flush the buffer
-	while (getch() != '\n')
-	{
-		// intentionally left blank
-	}
-  */
 }

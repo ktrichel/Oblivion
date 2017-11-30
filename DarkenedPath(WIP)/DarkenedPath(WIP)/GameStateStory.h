@@ -10,6 +10,7 @@
 extern "C" {	/* Assume C declarations for C++ */
 #endif
 
+	char name[20];
 
 	void GameStateStoryInit();
 

@@ -32,10 +32,12 @@ void GameStateStoryUpdate(float dt)
 void Chapter1()
 {
   CHARACTER c;
-  char name[20] = "";
+
   char parent[4] = "";
   char choice;
   char choice2;
+  printf("You awaken in a dark dungeon to a voice calling out to you with a single torch as your sole light source\n...llo? Hey!\n");
+  getchar();
   printf("Are you lost? Do remember who you were last with?\n");
   printf("Mom?\nDad?\n>>");
 
@@ -90,8 +92,6 @@ void Chapter1()
   while (getchar() != '\n');
   *name = toupper(*name);
   strcpy(c.name, name);
-  printf("DEBUG: %s", c.name);
-  getchar();
   ClearScreen();
 
   do

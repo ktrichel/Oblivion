@@ -13,6 +13,7 @@ extern "c" {	/* assume c declarations for c++ */
 		int attack;
 	} typedef CHARACTER;
 
+
 #ifdef __cplusplus
 }                      /*  End of extern "C" { */
 #endif
