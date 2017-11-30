@@ -241,6 +241,7 @@ void calcDmg()
     getchar();
   } while (enemy1.health > 0); 
   LvlUp();
+  GameStateManagerSetNextState(GsStory);
 }
 
 
