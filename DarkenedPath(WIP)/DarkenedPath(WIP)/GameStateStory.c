@@ -116,7 +116,7 @@ void Chapter1()
   getchar();
   ClearScreen();
 
-  printf("I think I hear someone. I hope  you're ready to get us out of here!\n\n\n\n\n\n\n\n\n\n");
+  printf("I think I hear someone. I hope you're ready to get us out of here!\n\n\n\n\n\n\n\n\n\n");
   printf("\nPress Enter to continue...");
 
   getchar();
@@ -129,7 +129,7 @@ void Chapter2()
 {
 	printf("I'm glad we finally made it out of that dark place!\n I hope you're ready for your new adventure out in the real world.");
 	ClearScreen();
-	printf("There is  a long and windy path that goes through a large thicket.\n You can also see the path exit the forest up a mountain with a large castle on top.");
+	printf("There is a long and windy path that goes through a large thicket.\n You can also see the path exit the forest up a mountain with a large castle on top.");
 	ClearScreen();
 	printf("We have a long way to go until we make it to our father's castle. They weren't as kind to me and Mom as they were to you.");
 }

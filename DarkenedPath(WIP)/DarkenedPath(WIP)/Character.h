@@ -11,6 +11,11 @@ extern "c" {	/* assume c declarations for c++ */
 		int health;
 		int defense;
 		int attack;
+    int level;
+    int experience;
+    char drop1[15];
+    char drop2[15];
+    char drop3[15];
 	} typedef CHARACTER;
 
 
