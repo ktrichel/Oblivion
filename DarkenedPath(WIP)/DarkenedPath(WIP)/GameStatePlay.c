@@ -150,6 +150,7 @@ void LvlUp()
     player.experience = 0;
   }
   printf("Your power level is ever reaching near 9000!\n");
+  getchar();
 }
 void calcDmg()
 {
@@ -191,23 +192,26 @@ void calcDmg()
   fclose(chp);
 
   do {
-    printf("You have three options:\n1: normal strike\n2. heavy strike\n3. dodge\n");
+    printf("You have three options:\n1: normal strike\n2. heavy strike\n3. dodge\n>>");
     //player choice
     choice = getchar();
     switch (choice)
     {
       case '1':
+        printf("You strike the %s\n", enemy1.name);
         enemy1.health = enemy1.health - (player.attack - enemy1.defense);
         break;
       case '2':
-        enemy1.health = enemy1.health - (player.attack - enemy1.defense);
+        printf("You swing at %s with all your might\n", enemy1.name);
+        enemy1.health = enemy1.health - ((player.attack + 1) - enemy1.defense);
         player.health -= 1;
         break;
       case '3':
+        printf("You attempt to dodge the next attack\n");
         player.health += 1;
         break;
       default:
-        printf("press 1 2 or 3");
+        printf("press 1 2 or 3\n");
         choice = getchar();
         break;
     }
@@ -216,13 +220,16 @@ void calcDmg()
     switch (r)
     {
     case 1:
+      printf("The %s slashes at you\n", enemy1.name);
       player.health = player.health - (enemy1.attack - player.defense);
       break;
     case 2:
-      player.health = player.health - (enemy1.attack - player.defense);
+      printf("The %s swings a heavy blow at you\n", enemy1.name);
+      player.health = player.health - ((enemy1.attack + 1) - player.defense);
       enemy1.health -= 1;
       break;
     case 3:
+      printf("The %s tries to dodge your attack\n", enemy1.name);
       enemy1.health += 1;
       break;
     }
@@ -290,9 +297,13 @@ void GameStatePlayUpdate(float dt)
     ClearScreen();
     printf("HELP: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
   }
-  else if (toupper(player_input) == 'B')
+
+  if (IsDebuggerPresent())
   {
-    GameStateManagerSetNextState(GsStory);
+    if (toupper(player_input) == 'B')
+    {
+      GameStateManagerSetNextState(GsStory);
+    }
   }
 }
 
