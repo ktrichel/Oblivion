@@ -137,7 +137,9 @@
   <ItemGroup>
     <Text Include="battle.txt" />
     <Text Include="chp.txt" />
+    <Text Include="FirstTime.txt" />
     <Text Include="gameover.txt" />
+    <Text Include="miku.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

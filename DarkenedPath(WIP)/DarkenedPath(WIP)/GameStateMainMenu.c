@@ -43,7 +43,6 @@ void GameStateMainMenuInit()
 {
   FILE *chp;
   chp = fopen("chp.txt", "w");
-  char ch;
   if (chp == NULL)
   {
     printf("Cannot open file for writing.\n");
@@ -53,6 +52,17 @@ void GameStateMainMenuInit()
   fprintf(chp, "%c", '/');
 
   fclose(chp);
+
+  FILE *fT = fopen("FirstTime.txt", "w");
+  if (fT == NULL)
+  {
+    printf("Cannot open file for writing.\n");
+    exit(0);
+  }
+
+  fprintf(fT, "%c", '1');
+
+  fclose(fT);
 
 	/* Display the name of your text adventure as simple text or ASCII graphics. */
 	printf("GAM100 Game\n");
