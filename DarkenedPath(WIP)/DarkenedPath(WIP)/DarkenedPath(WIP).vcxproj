@@ -135,6 +135,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="battle.txt" />
+    <Text Include="chp.txt" />
+    <Text Include="gameover.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

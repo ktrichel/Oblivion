@@ -25,6 +25,15 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="chp.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="gameover.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="battle.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">
