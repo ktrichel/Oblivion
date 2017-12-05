@@ -34,6 +34,12 @@
     <Text Include="battle.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="FirstTime.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="miku.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">

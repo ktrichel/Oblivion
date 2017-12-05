@@ -17,15 +17,16 @@ int main()
 	/* ------------------------------------------------------------------------ */
 	/* Initilization and Setup */
 	/* ------------------------------------------------------------------------ */
-	HWND console = GetConsoleWindow();
-	RECT r;
-	GetWindowRect(console, &r); //stores the console's current dimensions
+  system("mode 120,27");   //Set mode to ensure window does not exceed buffer size
+  SMALL_RECT WinRect = { 0, 0, 120, 27 };   //New dimensions for window in 8x12 pixel chars
+  SMALL_RECT* WinSize = &WinRect;
+  SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), true, WinSize);   //Set new size for window
 
-	MoveWindow(console, r.left, r.top, 1000, 500, TRUE); // 800 width, 100 height
+  HWND consoleWindow = GetConsoleWindow();
 
-	HWND consoleWindow = GetConsoleWindow();
+  SetWindowPos(consoleWindow, 0, 405, 225, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+  
 
-	SetWindowPos(consoleWindow, 0, 350, 250, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
 
 	/* Initialize the game state manager. */
 	GameStateManagerInit();

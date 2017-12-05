@@ -19,7 +19,95 @@ char drop3[20];
 /*************************************************************************
 *                          Global Variables                              *
 **************************************************************************/
-int *firstTime;
+char *battleUI[] =
+{
+" _ ______ ______ ______ ______ _ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ _ ______ ______ ______ ______ ______ ______ ______ _ ",
+"|_|______|______|______|______|_|______|______|______|______|______|______|______|______|______|______|_|______|______|______|______|______|______|______|_|",
+"| |       Command Log         | |                                                                     | |                                                | |",
+"| |___________________________| |   %s                   %i                                           | |    Enemy                 Level                 | |",
+"| |                           | |                                                                     | |                                                | |",
+"| |                           | |   %i                                                                | |    Hp                                          | |",
+"| |                           | |                                                                     | |                                                | |",
+"| |                           | |   %i                                                                | |    Atk                                         | |",
+"| |                           | |                                                                     | |                                                | |",
+"| |                           | |   %i                                                                | |    Def                                         | |",
+"| |                           | |                                                                     | |                                                | |",
+"| |                           | |______ ______ ______ ______ ______ ______ ______ ______ ______ ______| |______ ______ ______ ______ ______ ______ ______| |",
+"| |                           | |______|______|______|______|______|______|______|______|______|______|_|______|______|______|______|______|______|______| |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |                           | |                                                                                                                        | |",
+"| |______ ______ ______ ______| |____ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ___| |",
+"|_|______|______|______|______|_|____|______|______|______|______|______|______|______|______|______|______|______|______|______|______|______|______|___|_|",
+};
+
+void BattleUI()
+{
+  system("mode 157,48");   //Set mode to ensure window does not exceed buffer size
+  SMALL_RECT WinRect = { 0, 0, 157, 48 };   //New dimensions for window in 8x12 pixel chars
+  SMALL_RECT* WinSize = &WinRect;
+  SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), true, WinSize);   //Set new size for window
+
+  HWND consoleWindow = GetConsoleWindow();
+
+  SetWindowPos(consoleWindow, 0, 277, 9, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+
+  /*
+  FILE *pfile = fopen("battle.txt", "r");
+  char *s[160];
+  if (pfile == NULL)
+  {
+  printf("Cannot open file for reading.\n");
+  exit(0);
+  }
+  while (fgets(s, 160, pfile))
+  {
+  printf("%s", s);
+  }
+
+  fclose(pfile);
+  */
+
+
+
+  for (int i = 0; i < _countof(battleUI); i++)
+  {
+    printf("%s\n", battleUI[i]);
+  }
+
+
+  getchar();
+  ClearScreen();
+}
 
 void GameStatePlayInit()
 {
@@ -30,14 +118,29 @@ void GameStatePlayInit()
   player.experience = 0;
   player.level = 1;
 
-  if (firstTime != 0)
+  FILE *fT = fopen("FirstTime.txt", "r");
+  if (fT == NULL)
   {
-    firstTime = 1;
+    printf("Cannot open file for reading.\n");
+    exit(0);
   }
-  else
+  char first = 0;
+  first = fgetc(fT);
+  if (first == '1')
   {
-    firstTime = 0;
+    printf("HINT: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
+    printf("Press 'h' at anytime to be reminded of the controls.\n");
   }
+  fclose(fT);
+
+  fT = fopen("FirstTime.txt", "w");
+  if (fT == NULL)
+  {
+    printf("Cannot open file for reading.\n");
+    exit(0);
+  }
+  fprintf(fT, "%c", '0');
+  fclose(fT);
 }
 
 void getEnemyType(char name[20])
@@ -177,7 +280,7 @@ void calcDmg()
   if (chp == NULL)
   {
     printf("Cannot open file for reading.\n");
-    exit(0);
+    return;
   }
 
   do
@@ -251,7 +354,6 @@ void calcDmg()
   GameStateManagerSetNextState(GsStory);
 }
 
-
 void GameStatePlayUpdate(float dt)
 {
 	/* Tell the compiler that the 'dt' variable is unused. */
@@ -259,6 +361,7 @@ void GameStatePlayUpdate(float dt)
   FILE *chp;
   chp = fopen("chp.txt", "r");
   char c = '0';
+
   if (chp == NULL)
   {
     printf("Cannot open file for reading.\n");
@@ -272,13 +375,9 @@ void GameStatePlayUpdate(float dt)
       printf("A grunt appears and won't let you leave the dungeon.\n");
   } while (c != EOF);
   fclose(chp);
+
   EnemyListInit();
-  if (firstTime)
-  {
-    printf("HINT: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
-    printf("Press 'h' at anytime to be reminded of the controls.\n");
-    firstTime = 0;
-  }
+  
 	printf("Enter Command\n>> ");
 	char player_input = getch();
 
@@ -304,6 +403,12 @@ void GameStatePlayUpdate(float dt)
     {
       GameStateManagerSetNextState(GsStory);
     }
+
+	  if (toupper(player_input) == 'L')
+	  {
+      ClearScreen();
+      BattleUI();
+	  }
   }
 }
 

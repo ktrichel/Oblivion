@@ -47,10 +47,11 @@ void ScreenTransition(int length)
 	ClearScreen();
 
 	HWND console = GetConsoleWindow();
-	RECT r;
-	GetWindowRect(console, &r); //stores the console's current dimensions
 
-	MoveWindow(console, r.left, r.top, 1000, 500, TRUE); // 800 width, 100 height
+  system("mode 120,27");   //Set mode to ensure window does not exceed buffer size
+  SMALL_RECT WinRect = { 0, 0, 120, 27 };   //New dimensions for window in 8x12 pixel chars
+  SMALL_RECT* WinSize = &WinRect;
+  SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), true, WinSize);   //Set new size for window
 
 	HWND consoleWindow = GetConsoleWindow();
 
