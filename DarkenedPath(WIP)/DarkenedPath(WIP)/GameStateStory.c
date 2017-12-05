@@ -205,6 +205,12 @@ void Chapter1()
 
   GameStateManagerSetNextState(GsPlay);
 }
+void Mini1()
+{
+	printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you. \n His body blocks the light coming in from the outside, and there is no one to escape without defeating him first.");
+	getchar();
+	GameStateManagerSetNextState(GsPlay);
+}
 
 void Chapter2()
 {
@@ -217,18 +223,79 @@ void Chapter2()
     exit(0);
   }
 
-  fprintf(chp, "%c", '/');
+  fprintf(chp, "%c", '2');
 
   fclose(chp);
-
+  
 	printf("\"I'm glad we finally made it out of that dark place!\"\n\"I hope you're ready for your new adventure out in the real world.\"");
   getchar();
   ClearScreen();
 	printf("There is a long and windy path that goes through a large thicket.\nYou can also see the path exit the forest up a mountain with a large castle on top.");
   getchar();
   ClearScreen();
-	printf("\"We have a long way to go until we make it to our father's castle. They weren't as kind to me and Mom as they were to you.\"");
+	printf("\"We have a long way to go until we make it to our father's castle. \nThey weren't as kind to me and Mom as they were to you.\"");
   getchar();
+  ClearScreen();
+	printf("You start to head down the darkened path into the forest which contains nothing but mysteries.");
+  getchar();
+  ClearScreen();
+	printf("A treant emerges from the crowd of trees and starts to engage you, \nas it seems you have intruded in his territory"); //158 46
 
   GameStateManagerSetNextState(GsPause);
+}
+
+void Mini2()
+{
+	printf("A figure walks out from behind a tree to stop you in your path.\n Its hair is made out of leaves , its face is covered by some sort of earthen mask, "
+			   "\nand its body is covered with branches and a tattered robe. \"Fu herner da jat!\" says the witchly figure.\nYou have a feeling it will not allow you to pass easily."); /*Witch states you shall not pass in jibberish*/
+  getchar();
+  ClearScreen();
+
+}
+
+void Chapter3()
+{
+  printf("\"That banshee sure was mad about something. I hope we are able to survive through these mountains up ahead.\"");
+  getchar();
+  ClearScreen();
+  printf("\"I heard our father joined the bats. I also heard they want to destory anyone that doesn't follow their ideals\"");
+  getchar();
+  ClearScreen();
+  printf("You start ascending the mountain... Suddenly a rock golem unravels himself and nearly crushes you! \nYou wonder why the golem is so aggressive when you have done nothing. \n You then wonder if the banshee attacking you wasn't a mistake...");
+  getchar();
+  ClearScreen();
+}
+
+void Mini3()
+{
+  printf("You reach just short of the mountain top and are led instead inside the mountain. You wonder inside the cavern and begin hearing \nsomething similar to heavy breathing. You decide it was just the wind in the high mountains; however,"
+         "\nyou stumble into a pile coins and create a large crashing and clanging sound! \nA dragon whom is not fully grown is awoken and ready to defend its treasure!");
+}
+
+void Chapter4()
+{
+  printf("\"............... \"");
+  getchar();
+  ClearScreen();
+  printf("..........");
+  getchar();
+  ClearScreen();
+  printf("..........");
+  getchar();
+  ClearScreen();
+}
+
+void Mini4()
+{
+  printf("..........");
+}
+
+void Parent()
+{
+
+}
+
+void Epilogue()
+{
+
 }
