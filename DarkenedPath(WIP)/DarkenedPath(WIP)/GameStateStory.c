@@ -194,7 +194,7 @@ void Chapter1()
   } while (toupper(choice2) != 'Y');
 
   ClearScreen();
-  printf("\"That's a nice name, happy to meet you %s!\"\n", name);
+  printf("\"That's a nice name, I'm happy to meet you %s!\"\n", name);
   getchar();
   ClearScreen();
 
@@ -258,7 +258,7 @@ void Chapter3()
   printf("\"That banshee sure was mad about something. I hope we are able to survive through these mountains up ahead.\"");
   getchar();
   ClearScreen();
-  printf("\"I heard our father joined the bats. I also heard they want to destory anyone that doesn't follow their ideals\"");
+  printf("\"I heard our father joined the bats. The bats are going to destory anyone that doesn't follow their ideals. \n That's why me and mom...\"");
   getchar();
   ClearScreen();
   printf("You start ascending the mountain... Suddenly a rock golem unravels himself and nearly crushes you! \nYou wonder why the golem is so aggressive when you have done nothing. \n You then wonder if the banshee attacking you wasn't a mistake...");
@@ -269,18 +269,21 @@ void Chapter3()
 void Mini3()
 {
   printf("You reach just short of the mountain top and are led instead inside the mountain. You wonder inside the cavern and begin hearing \nsomething similar to heavy breathing. You decide it was just the wind in the high mountains; however,"
-         "\nyou stumble into a pile coins and create a large crashing and clanging sound! \nA dragon whom is not fully grown is awoken and ready to defend its treasure!");
+         "\nyou stumble into a pile coins and create a large crashing and clanging sound! \nA dragon, whom is not fully grown, is awoken and ready to defend its treasure!");
 }
 
 void Chapter4()
 {
-  printf("\"............... \"");
+  printf("\"I can't believe you found so much treasure! I would try to hurry out of here \n there may be another dragon, since that draon didn't look too big.\"");
   getchar();
   ClearScreen();
-  printf("..........");
+  printf("You rummage through the coins, gathering whatever treasure you can carry, and exit through the cave on the other side of the mountain.\n You then reach the top of the mountain, which is a large plateu that has a castle on its surface.");
   getchar();
   ClearScreen();
-  printf("..........");
+  printf("\"Hey brother, I think that is our father's castle. You should go in and meet him, \nyou may be able to learn more about what happened.\"");
+  getchar();
+  ClearScreen();
+  printf("");
   getchar();
   ClearScreen();
 }
@@ -292,8 +295,7 @@ void Mini4()
 
 void Parent()
 {
-
-}
+  }
 
 void Epilogue()
 {
