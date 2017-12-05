@@ -295,7 +295,7 @@ void Mini4()
 
 void Parent()
 {
-  }
+}
 
 void Epilogue()
 {
