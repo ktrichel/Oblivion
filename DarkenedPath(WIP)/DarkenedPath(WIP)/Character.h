@@ -9,13 +9,14 @@ extern "c" {	/* assume c declarations for c++ */
 	{
 		char name[20];
 		int health;
+    int maxhealth;
 		int defense;
 		int attack;
     int level;
     int experience;
-    char drop1[15];
+    /*char drop1[15];
     char drop2[15];
-    char drop3[15];
+    char drop3[15];*/
 	} typedef CHARACTER;
 
 

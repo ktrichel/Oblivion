@@ -60,12 +60,12 @@ void GameStateMainMenuInit()
     exit(0);
   }
 
-  fprintf(fT, "%c", '1');
+  fprintf(fT, "%c", '0');
 
   fclose(fT);
 
 	/* Display the name of your text adventure as simple text or ASCII graphics. */
-	printf("GAM100 Game\n");
+	printf("Darkened Path\n");
 
 		/* Display the following main menu options: */
 		/*   Select an option: */
@@ -85,7 +85,7 @@ void GameStateMainMenuUpdate(float dt)
 
 	/* Read the user input. */
 
-		int option = getchar();
+		int option = getch();
 
 		/* Check for 'p' or 'P' to be entered. */
 		if (toupper(option) == 'P')
@@ -118,7 +118,7 @@ void GameStateMainMenuUpdate(float dt)
           exit(0);
         }
 
-        fprintf(chp, "%c", '1');
+        fprintf(chp, "%c", '0');
 
         fclose(chp);
 
@@ -127,13 +127,6 @@ void GameStateMainMenuUpdate(float dt)
         GameStateManagerSetNextState(GsPlay);
       }
     }
-
-		// flush the buffer
-		while (getchar() != '\n')
-		{
-			// intentionally left blank
-		}
-
 }
 
 void GameStateMainMenuExit()

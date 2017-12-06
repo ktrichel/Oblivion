@@ -89,10 +89,10 @@ void GameStateDigiPenLogoUpdate(float dt)
 	UNREFERENCED_PARAMETER(dt);
 
 	/* Print the message "Press ENTER to continue..." to the screen. */
-	printf("Press ENTER to continue...");
+	printf("Press any button to continue...");
 
 	/* Wait for the user to press ENTER. */
-	getchar();
+	getch();
 
 	/* Tell the game state manager to switch to the Main Menu state. */
 	GameStateManagerSetNextState(GsMainMenu);

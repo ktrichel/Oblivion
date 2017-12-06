@@ -13,6 +13,9 @@ void GameStatePlayExit();
 
 void GameStatePlayUpdate(float dt);
 
+int enemy;
+
+
 #ifdef __cplusplus
 }                       /* End of extern "C" { */
 #endif

@@ -26,7 +26,7 @@ void GameStatePauseUpdate(float dt)
 	printf("Would you like to return to the Main Menu?\n");
 	printf("(Y)es\n(N)o\n>> ");
 
-	choice = getchar();
+	choice = getch();
   
   ClearScreen();
 
@@ -35,16 +35,10 @@ void GameStatePauseUpdate(float dt)
 		//printf("DEBUG: QUITTING");
 		//Wait(500);
 
-    //flush the buffer
-    while (getchar() != '\n');
-
 		GameStateManagerSetNextState(GsMainMenu);
 	}
 	else if (choice == 'n' || choice == 'N')
 	{
-    //flush the buffer
-    while (getchar() != '\n');
-
 		GameStateManagerSetNextState(GsPlay);
     ClearScreen();
 	}
@@ -52,7 +46,7 @@ void GameStatePauseUpdate(float dt)
 	{
 		printf("Please input y or n\n");
 
-    getchar();
+    getch();
 
     ClearScreen();
 	}

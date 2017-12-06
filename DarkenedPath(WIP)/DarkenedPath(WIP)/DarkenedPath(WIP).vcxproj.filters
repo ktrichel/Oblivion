@@ -31,9 +31,6 @@
     <Text Include="gameover.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="battle.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="FirstTime.txt">
       <Filter>Resource Files</Filter>
     </Text>
