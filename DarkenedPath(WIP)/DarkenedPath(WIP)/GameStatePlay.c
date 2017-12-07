@@ -41,7 +41,20 @@ char *battleUI[] =
   "| |______ ______ ______ ______ ______ ______ ______ ______ ______ ______| |______ ______ ______ ______ ______ ______ ______| |\n",
   "|_|______|______|______|______|______|______|______|______|______|______|_|______|______|______|______|______|______|______|_|\n",
 };
+bool cleared = false;
 
+void RemoveNewLine(char *string)
+{
+  int length = strlen(string);
+  
+  for (int i = 0; i < length; i++)
+  {
+    if (*(string + i) == '\n')
+    {
+      *(string + i) = 0;
+    }
+  }
+}
 
 void GameStatePlayInit()
 {
@@ -62,14 +75,6 @@ void GameStatePlayInit()
 
   if (first == '0')
   {
-    strcpy(player.name, name);
-    player.maxhealth = 10;
-    player.health = 10;
-    player.defense = 1;
-    player.attack = 3;
-    player.experience = 0;
-    player.level = 1;
-
     printf("HINT: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
     printf("Press 'h' at anytime to be reminded of the controls.\n");
   }
@@ -86,7 +91,7 @@ void GameStatePlayInit()
   fclose(fT);
 
   FILE *playerStats = fopen("Player.txt", "r");
-  char *ps[20] = {""};
+  char *ps[20] = { "" };
   if (playerStats == NULL)
   {
     printf("Cannot open file for reading.\n");
@@ -98,6 +103,7 @@ void GameStatePlayInit()
     if (i == 0)
     {
       strcpy(player.name, ps);
+      RemoveNewLine(player.name);
     }
     else if (i == 1)
     {
@@ -126,6 +132,8 @@ void GameStatePlayInit()
     i++;
   }
   fclose(playerStats);
+  printf("%s\n%i\n%i\n%i\n%i\n%i\n%i", player.name, player.maxhealth, player.health, player.defense, player.attack, player.experience, player.level);
+  getch();
 }
 
 void getEnemyType(char name[20])
@@ -207,27 +215,28 @@ void EnemyListInit()
       strcpy(enemy1.name, "Grunt");
       enemy1.level = 1;
       EnemyInit(enemy);
-      enemy++;
     }
     else if (enemy == 1)
     {
       strcpy(enemy2.name, "Alert Grunt");
       enemy2.level = 1;
       EnemyInit(enemy);
-      enemy++;
     }
     else if (enemy == 2)
     {
       strcpy(enemy3.name, "Grunt Guard");
       enemy3.level = 2;
       EnemyInit(enemy);
-      enemy++;
     }
     else if (enemy == 3)
     {
       strcpy(miniBoss.name, "Captain");
       miniBoss.level = player.level;
       EnemyInit(enemy);
+    }
+    else if (enemy >= 4)
+    {
+      cleared = true;
     }
     /*getEnemyType(enemy1.name);
     strcpy(enemy1.drop1, drop1);
@@ -257,7 +266,7 @@ void EnemyListInit()
   }
 }
 
-void LvlUp() 
+void LvlUp()
 {
   int expCap = player.level * 10;
 
@@ -455,6 +464,7 @@ void calcDmg()
           printf("You ready your rusty sword to fight.\n");
           printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.");
         }
+      }
     }
   } while (c != EOF);
   fclose(chp);
@@ -547,6 +557,7 @@ void calcDmg()
       player.experience = player.experience + cEnemy.experience;
       /* printf("%i", player.experience); */
 
+      enemy++;
       LvlUp();
     }
   }
@@ -604,6 +615,14 @@ void GameStatePlayUpdate(float dt)
     exit(0);
   }
 
+  EnemyListInit();
+
+  if (cleared)
+  {
+    ClearScreen();
+    GameStateManagerSetNextState(GsStory);
+  }
+
   do
   {
     c = fgetc(chp);
@@ -612,7 +631,6 @@ void GameStatePlayUpdate(float dt)
   } while (c != EOF);
   fclose(chp);
 
-  EnemyListInit();
 
   printf("Enter Command\n>> ");
   char player_input = getch();
@@ -652,7 +670,7 @@ void GameStatePlayExit()
 {
   FILE *chp;
   chp = fopen("chp.txt", "r");
-  char c;
+  char c = '0';
   if (chp == NULL)
   {
     printf("Cannot open file for reading.\n");
@@ -676,24 +694,9 @@ void GameStatePlayExit()
   case '4':
     c++;
     break;
-  case '5':
-    c++;
-    break;
-  case '6':
-    c++;
-    break;
-  case '7':
-    c++;
-    break;
-  case '8':
-    c++;
-    break;
-  case '9':
-    c++;
-    break;
   default:
     printf("End of game or out of scope");
-    break;
+    exit(0);
   }
   fclose(chp);
 
@@ -708,11 +711,16 @@ void GameStatePlayExit()
   fclose(chp);
 
   FILE *playerStats = fopen("Player.txt", "w");
+  char *ps[20] = { "" };
+  int i = 0;
   if (playerStats == NULL)
   {
     printf("Cannot open file for writing.\n");
     exit(0);
   }
+
+  fprintf(playerStats, "%s\n%i\n%i\n%i\n%i\n%i\n%i", player.name, player.maxhealth, player.health, player.defense, player.attack, player.experience, player.level);
+  fclose(playerStats);
 
   ScreenTransition(2);
 

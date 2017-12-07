@@ -14,6 +14,7 @@
 #include "GameStateManager.h"
 #include "Utils.h"
 #include "GameStateStory.h"
+#include "Character.h"
 
 /*------------------------------------------------------------------------------
 // Private Consts:
@@ -22,7 +23,7 @@
 /*------------------------------------------------------------------------------
 // Private Structures:
 //----------------------------------------------------------------------------*/
-
+struct CHARACTER player;
 /*------------------------------------------------------------------------------
 // Public Variables:
 //----------------------------------------------------------------------------*/
@@ -131,6 +132,27 @@ void GameStateMainMenuUpdate(float dt)
 
 void GameStateMainMenuExit()
 {
+
+  strcpy(player.name, name);
+  player.maxhealth = 10;
+  player.health = 10;
+  player.defense = 1;
+  player.attack = 3;
+  player.experience = 0;
+  player.level = 1;
+
+  FILE *playerStats = fopen("Player.txt", "w");
+  char *ps[20] = { "" };
+  int i = 0;
+  if (playerStats == NULL)
+  {
+    printf("Cannot open file for writing.\n");
+    exit(0);
+  }
+
+  fprintf(playerStats, "%s\n%i\n%i\n%i\n%i\n%i\n%i", player.name, player.maxhealth, player.health, player.defense, player.attack, player.experience, player.level);
+  fclose(playerStats);
+
 	/* Implement an interesting screen transition effect. See function definition in Utils.c. */
 	ScreenTransition(3);
 

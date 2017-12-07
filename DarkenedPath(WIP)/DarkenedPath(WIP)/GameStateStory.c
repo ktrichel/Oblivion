@@ -79,6 +79,22 @@ void GameStateStoryUpdate(float dt)
     {
       i = 1;
     }
+    else if (c == '2')
+    {
+      i = 2;
+    }
+    else if (c == '3')
+    {
+      i = 3;
+    }
+    else if (c == '4')
+    {
+      i = 4;
+    }
+    else if (c == '5')
+    {
+      i = 5;
+    }
   } while (c != EOF);
   fclose(chp);
 
@@ -91,28 +107,16 @@ void GameStateStoryUpdate(float dt)
     Chapter2();
     break;
   case 2:
-    Chapter1();
+    Chapter3();
     break;
   case 3:
-    Chapter1();
+    Chapter4();
     break;
   case 4:
-    Chapter1();
+    Parent();
     break;
   case 5:
-    Chapter1();
-    break;
-  case 6:
-    Chapter1();
-    break;
-  case 7:
-    Chapter1();
-    break;
-  case 8:
-    Chapter1();
-    break;
-  case 9:
-    Chapter1();
+    Epilogue();
     break;
   default:
     break;
@@ -330,7 +334,8 @@ void Epilogue()
   
   while (chosen == 0)
   {
-    char choice[6] = gets();
+    char choice[6] = { "" };
+    gets(choice);
     strcpy(choice, toupper(choice));
     if (choice == "FINISH")
     {
