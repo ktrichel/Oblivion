@@ -27,33 +27,27 @@ void BattleUI();
 **************************************************************************/
 char *battleUI[] =
 {
-" _ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ _ ______ ______ ______ ______ ______ ______ ______ _ \n",
-"|_|______|______|______|______|______|______|______|______|______|______|_|______|______|______|______|______|______|______|_|\n",
-"| |                                                                     | |                                                | |\n",
-"| |   %-20s %2i                                           | |   %-20s %2i                      | |\n",
-"| |                                                                     | |                                                | |\n",
-"| |    HP: %2i/%2i                                                        | |    HP: %2i/%2i                                   | |\n",
-"| |                                                                     | |                                                | |\n",
-"| |   ATK: %2i                                                           | |   ATK:  %2i                                     | |\n",
-"| |                                                                     | |                                                | |\n",
-"| |   DEF: %2i                                                           | |   DEF:  %2i                                     | |\n",
-"| |                                                                     | |                                                | |\n",
-"| |______ ______ ______ ______ ______ ______ ______ ______ ______ ______| |______ ______ ______ ______ ______ ______ ______| |\n",
-"|_|______|______|______|______|______|______|______|______|______|______|_|______|______|______|______|______|______|______|_|\n",
+  " _ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ _ ______ ______ ______ ______ ______ ______ ______ _ \n",
+  "|_|______|______|______|______|______|______|______|______|______|______|_|______|______|______|______|______|______|______|_|\n",
+  "| |                                                                     | |                                                | |\n",
+  "| |   %-20s %2i                                           | |   %-20s %2i                      | |\n",
+  "| |                                                                     | |                                                | |\n",
+  "| |    HP: %2i/%2i                                                        | |    HP: %2i/%2i                                   | |\n",
+  "| |                                                                     | |                                                | |\n",
+  "| |   ATK: %2i                                                           | |   ATK:  %2i                                     | |\n",
+  "| |                                                                     | |                                                | |\n",
+  "| |   DEF: %2i                                                           | |   DEF:  %2i                                     | |\n",
+  "| |                                                                     | |                                                | |\n",
+  "| |______ ______ ______ ______ ______ ______ ______ ______ ______ ______| |______ ______ ______ ______ ______ ______ ______| |\n",
+  "|_|______|______|______|______|______|______|______|______|______|______|_|______|______|______|______|______|______|______|_|\n",
 };
 
 
 void GameStatePlayInit()
 {
   enemy = 0;
-
-  strcpy(player.name, name);
-  player.maxhealth = 10;
-  player.health = 10;
-  player.defense = 1;
-  player.attack = 3;
-  player.experience = 0;
-  player.level = 1;
+  int i = 0;
+  char *end;
 
   FILE *fT = fopen("FirstTime.txt", "r");
   if (fT == NULL)
@@ -68,6 +62,14 @@ void GameStatePlayInit()
 
   if (first == '0')
   {
+    strcpy(player.name, name);
+    player.maxhealth = 10;
+    player.health = 10;
+    player.defense = 1;
+    player.attack = 3;
+    player.experience = 0;
+    player.level = 1;
+
     printf("HINT: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
     printf("Press 'h' at anytime to be reminded of the controls.\n");
   }
@@ -82,6 +84,48 @@ void GameStatePlayInit()
 
   fprintf(fT, "%c", '1');
   fclose(fT);
+
+  FILE *playerStats = fopen("Player.txt", "r");
+  char *ps[20] = {""};
+  if (playerStats == NULL)
+  {
+    printf("Cannot open file for reading.\n");
+    exit(0);
+  }
+
+  while (fgets(ps, 20, playerStats))
+  {
+    if (i == 0)
+    {
+      strcpy(player.name, ps);
+    }
+    else if (i == 1)
+    {
+      player.maxhealth = strtol(ps, &end, 10);
+    }
+    else if (i == 2)
+    {
+      player.health = strtol(ps, &end, 10);
+    }
+    else if (i == 3)
+    {
+      player.defense = strtol(ps, &end, 10);
+    }
+    else if (i == 4)
+    {
+      player.attack = strtol(ps, &end, 10);
+    }
+    else if (i == 5)
+    {
+      player.experience = strtol(ps, &end, 10);
+    }
+    else if (i == 6)
+    {
+      player.level = strtol(ps, &end, 10);
+    }
+    i++;
+  }
+  fclose(playerStats);
 }
 
 void getEnemyType(char name[20])
@@ -213,7 +257,7 @@ void EnemyListInit()
   }
 }
 
-void LvlUp()
+void LvlUp() 
 {
   int expCap = player.level * 10;
 
@@ -302,14 +346,14 @@ void calcDmg()
   switch (r)
   {
   case 1:
-    strcpy(loot, enemy1.drop1);
-    break;
+  strcpy(loot, enemy1.drop1);
+  break;
   case 2:
-    strcpy(loot, enemy1.drop2);
-    break;
+  strcpy(loot, enemy1.drop2);
+  break;
   case 3:
-    strcpy(loot, enemy1.drop3);
-    break;
+  strcpy(loot, enemy1.drop3);
+  break;
   }*/
 
   FILE *chp;
@@ -477,8 +521,8 @@ void BattleUI()
 
 void GameStatePlayUpdate(float dt)
 {
-	/* Tell the compiler that the 'dt' variable is unused. */
-	UNREFERENCED_PARAMETER(dt);
+  /* Tell the compiler that the 'dt' variable is unused. */
+  UNREFERENCED_PARAMETER(dt);
   FILE *chp;
   chp = fopen("chp.txt", "r");
   char c = '0';
@@ -496,22 +540,22 @@ void GameStatePlayUpdate(float dt)
       printf("A grunt appears and won't let you leave the dungeon.\n");
   } while (c != EOF);
   fclose(chp);
-  
+
   EnemyListInit();
 
-	printf("Enter Command\n>> ");
-	char player_input = getch();
+  printf("Enter Command\n>> ");
+  char player_input = getch();
 
-	if (toupper(player_input) == 'Q')
-	{
+  if (toupper(player_input) == 'Q')
+  {
     ClearScreen();
-		GameStateManagerSetNextState(GsPause);
-	}
-	else if (toupper(player_input) == 'A')
-	{
+    GameStateManagerSetNextState(GsPause);
+  }
+  else if (toupper(player_input) == 'A')
+  {
     ClearScreen();
     BattleUI();
-	}
+  }
   else if (toupper(player_input) == 'H')
   {
     ClearScreen();
@@ -525,11 +569,11 @@ void GameStatePlayUpdate(float dt)
       GameStateManagerSetNextState(GsGameOver);
     }
 
-	  if (toupper(player_input) == 'L')
-	  {
+    if (toupper(player_input) == 'L')
+    {
       ClearScreen();
       BattleUI();
-	  }
+    }
   }
 }
 
@@ -592,7 +636,14 @@ void GameStatePlayExit()
   fprintf(chp, "%c", c);
   fclose(chp);
 
-	ScreenTransition(2);
+  FILE *playerStats = fopen("Player.txt", "w");
+  if (playerStats == NULL)
+  {
+    printf("Cannot open file for writing.\n");
+    exit(0);
+  }
 
-	ClearScreen();
+  ScreenTransition(2);
+
+  ClearScreen();
 }

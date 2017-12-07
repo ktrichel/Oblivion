@@ -37,6 +37,9 @@
     <Text Include="miku.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Player.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">
