@@ -220,7 +220,7 @@ void Mini1()
 
   fclose(chp);
 
-	printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you. \n His body blocks the light coming in from the outside, and there is no one to escape without defeating him first.");
+	printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you. \n His body blocks the light coming in from the outside, and there is no way to escape without defeating him first.");
 	getch();
 	GameStateManagerSetNextState(GsPlay);
 }
@@ -418,7 +418,7 @@ void Epilogue()
   getchar();
   ClearScreen();
   printf("\"I'm sorry for having you be alone. I was not able to turn your sister and mother like I was for you. \nI had your older brother be my lieutenant while I waited for you to mature because I knew you had it in you.\n"
-         "Finish me and show me you have what it takes to dominate the kingdom that wants nothing but chaos in the world!\"\n(Show) him there's another way of doing this.\n(Finish) your father and give him what he wants");
-  char choice[6] = gets
+         "Finish me and show me you have what it takes to dominate the kingdom that wants nothing but chaos in the world!\"\n(Finish) your father and give him what he wants.\n(Show) him there's another way of doing this.\n>>");
+  char choice[6] = gets();
 
 }
