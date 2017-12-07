@@ -90,6 +90,30 @@ void GameStateStoryUpdate(float dt)
   case 1:
     Chapter2();
     break;
+  case 2:
+    Chapter1();
+    break;
+  case 3:
+    Chapter1();
+    break;
+  case 4:
+    Chapter1();
+    break;
+  case 5:
+    Chapter1();
+    break;
+  case 6:
+    Chapter1();
+    break;
+  case 7:
+    Chapter1();
+    break;
+  case 8:
+    Chapter1();
+    break;
+  case 9:
+    Chapter1();
+    break;
   default:
     break;
   }
@@ -194,40 +218,13 @@ void Chapter1()
 
 void Mini1()
 {
-  FILE *chp;
-  chp = fopen("chp.txt", "w");
-  char ch;
-  if (chp == NULL)
-  {
-    printf("Cannot open file for writing.\n");
-    exit(0);
-  }
-
-  fprintf(chp, "%c", '2');
-
-  fclose(chp);
-
 	printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you. \n His body blocks the light coming in from the outside, and there is no way to escape without defeating him first.");
 	getch();
 	GameStateManagerSetNextState(GsPlay);
 }
 
-void Chapter2()
-{  
+void Chapter2() 
 {
-  FILE *chp;
-  chp = fopen("chp.txt", "w");
-  char ch;
-  if (chp == NULL)
-  {
-    printf("Cannot open file for writing.\n");
-    exit(0);
-  }
-
-  fprintf(chp, "%c", '3');
-
-  fclose(chp);
-  
 	printf("\"I'm glad we finally made it out of that dark place!\"\n\"I hope you're ready for your new adventure out in the real world.\"");
   getch();
   ClearScreen();
@@ -247,19 +244,6 @@ void Chapter2()
 
 void Mini2()
 {
-  FILE *chp;
-  chp = fopen("chp.txt", "w");
-  char ch;
-  if (chp == NULL)
-  {
-    printf("Cannot open file for writing.\n");
-    exit(0);
-  }
-
-  fprintf(chp, "%c", '4');
-
-  fclose(chp);
-
 	printf("A figure walks out from behind a tree to stop you in your path.\n Its hair is made out of leaves , its face is covered by some sort of earthen mask, "
 			   "\nand its body is covered with branches and a tattered robe. \"Fu herner da jat!\" says the witchly figure.\nYou have a feeling it will not allow you to pass easily."); /*Witch states you shall not pass in jibberish*/
   getch();
@@ -270,19 +254,6 @@ void Mini2()
 
 void Chapter3()
 {
-  FILE *chp;
-  chp = fopen("chp.txt", "w");
-  char ch;
-  if (chp == NULL)
-  {
-    printf("Cannot open file for writing.\n");
-    exit(0);
-  }
-
-  fprintf(chp, "%c", '5');
-
-  fclose(chp);
-
   printf("\"That banshee sure was mad about something. I hope we are able to survive through these mountains up ahead.\"");
   getch();
   ClearScreen();
@@ -298,19 +269,6 @@ void Chapter3()
 
 void Mini3()
 {
-  FILE *chp;
-  chp = fopen("chp.txt", "w");
-  char ch;
-  if (chp == NULL)
-  {
-    printf("Cannot open file for writing.\n");
-    exit(0);
-  }
-
-  fprintf(chp, "%c", '6');
-
-  fclose(chp);
-
   printf("You reach just short of the mountain top and are led instead inside the mountain. You wonder inside the cavern and begin hearing \nsomething similar to heavy breathing. You decide it was just the wind in the high mountains; however,"
          "\nyou stumble into a pile coins and create a large crashing and clanging sound! \nA dragon, whom is not fully grown, is awoken and ready to defend its treasure!");
 
@@ -319,19 +277,6 @@ void Mini3()
 
 void Chapter4()
 {
-  FILE *chp;
-  chp = fopen("chp.txt", "w");
-  char ch;
-  if (chp == NULL)
-  {
-    printf("Cannot open file for writing.\n");
-    exit(0);
-  }
-
-  fprintf(chp, "%c", '7');
-
-  fclose(chp);
-
   printf("\"I can't believe you found so much treasure! I would try to hurry out of here \n there may be another dragon, since that dragon didn't look too old.\"");
   getchar();
   ClearScreen();
@@ -350,19 +295,6 @@ void Chapter4()
 
 void Mini4()
 {
-  FILE *chp;
-  chp = fopen("chp.txt", "w");
-  char ch;
-  if (chp == NULL)
-  {
-    printf("Cannot open file for writing.\n");
-    exit(0);
-  }
-
-  fprintf(chp, "%c", '8');
-
-  fclose(chp);
-
   printf("As you approach the top floor, you see a center door with a grand entrace. You assume this is where your father is. \nAs you approach the door a pale, toned, red-eyed man, who looks quite young, blocks your path.");
 
   GameStateManagerSetNextState(GsPlay);
@@ -370,19 +302,6 @@ void Mini4()
 
 void Parent()
 {
-  FILE *chp;
-  chp = fopen("chp.txt", "w");
-  char ch;
-  if (chp == NULL)
-  {
-    printf("Cannot open file for writing.\n");
-    exit(0);
-  }
-
-  fprintf(chp, "%c", '9');
-
-  fclose(chp);
-
   printf("You enter the room and see your father, he is also pale, toned, and has red-eyes; however, \nit looks as if he hasn't aged past 20 and he looks more elegant than who you just faced.");
   getchar();
   ClearScreen();
@@ -406,6 +325,33 @@ void Epilogue()
   ClearScreen();
   printf("\"I'm sorry for having you be alone. I was not able to turn your sister and mother like I was for you. \nI had your older brother be my lieutenant while I waited for you to mature because I knew you had it in you.\n"
          "Finish me and show me you have what it takes to dominate the kingdom that wants nothing but chaos in the world!\"\n(Finish) your father and give him what he wants.\n(Show) him there's another way of doing this.\n>>");
-  char choice[6] = gets();
-
+  
+  int chosen = 0;
+  
+  while (chosen == 0)
+  {
+    char choice[6] = gets();
+    strcpy(choice, toupper(choice));
+    if (choice == "FINISH")
+    {
+      ClearScreen();
+      printf("You deicide to bring your father peace from his darkened path.");
+      chosen = 1;
+    }
+    else if (choice == "SHOW")
+    {
+      ClearScreen();
+      chosen = 1;
+    }
+    else if (choice == "REPLAY")
+    {
+      ClearScreen(); 
+      Epilogue();
+    }
+    else
+    {
+      ClearScreen();
+      printf("Please type finish or show to decide your ending.\n If you'd like to listen to the situation again type replay.\n>>");
+    }
+  }
 }
