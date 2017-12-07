@@ -14,6 +14,7 @@
 #include <windows.h>
 #include "Utils.h"
 #include <time.h>
+#include "RemoveNewLine.h"
 
 
 // TODO: reference additional headers your program requires here

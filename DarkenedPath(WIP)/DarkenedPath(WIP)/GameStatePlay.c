@@ -13,9 +13,7 @@ CHARACTER enemy3;
 CHARACTER miniBoss;
 CHARACTER cEnemy;
 CHARACTER player;
-//char drop1[20];
-//char drop2[20];
-//char drop3[20];
+CHARACTER drops;
 
 /*************************************************************************
 *                        Prototype Declarations                          *
@@ -43,52 +41,11 @@ char *battleUI[] =
 };
 bool cleared = false;
 
-void RemoveNewLine(char *string)
-{
-  int length = strlen(string);
-  
-  for (int i = 0; i < length; i++)
-  {
-    if (*(string + i) == '\n')
-    {
-      *(string + i) = 0;
-    }
-  }
-}
-
 void GameStatePlayInit()
 {
   enemy = 0;
   int i = 0;
   char *end;
-
-  FILE *fT = fopen("FirstTime.txt", "r");
-  if (fT == NULL)
-  {
-    printf("Cannot open file for reading.\n");
-    exit(0);
-  }
-
-  char first = 0;
-
-  first = fgetc(fT);
-
-  if (first == '0')
-  {
-    printf("HINT: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
-    printf("Press 'h' at anytime to be reminded of the controls.\n");
-  }
-  fclose(fT);
-
-  fT = fopen("FirstTime.txt", "w");
-  if (fT == NULL)
-  {
-    printf("Cannot open file for writing.\n");
-    exit(0);
-  }
-
-  fprintf(fT, "%c", '1');
-  fclose(fT);
 
   FILE *playerStats = fopen("Player.txt", "r");
   char *ps[20] = { "" };
@@ -132,17 +89,53 @@ void GameStatePlayInit()
     i++;
   }
   fclose(playerStats);
-  printf("%s\n%i\n%i\n%i\n%i\n%i\n%i", player.name, player.maxhealth, player.health, player.defense, player.attack, player.experience, player.level);
-  getch();
+
+  FILE *fT = fopen("FirstTime.txt", "r");
+  if (fT == NULL)
+  {
+    printf("Cannot open file for reading.\n");
+    exit(0);
+  }
+
+  char first = 0;
+
+  first = fgetc(fT);
+
+  if (first == '0')
+  {
+    strcpy(player.name, name);
+    player.maxhealth = 10;
+    player.health = 10;
+    player.defense = 1;
+    player.attack = 3;
+    player.experience = 0;
+    player.level = 1;
+
+    printf("HINT: Press 'a' to begin the fight, or press 'q' to go to the pause menu.\n");
+    printf("Press 'h' at anytime to be reminded of the controls.\n");
+  }
+  fclose(fT);
+
+  fT = fopen("FirstTime.txt", "w");
+  if (fT == NULL)
+  {
+    printf("Cannot open file for writing.\n");
+    exit(0);
+  }
+
+  fprintf(fT, "%c", '1');
+  fclose(fT);
+  
+  cleared = false;
 }
 
 void getEnemyType(char name[20])
 {
-  if (name == "Grunt")
+  if (strcmp(name, enemy1.name) == 0)
   {
-    //strcpy(drop1, "Rusty Sword");
-    //strcpy(drop2, "Broken Chainmail");
-    //strcpy(drop3, "Burnt Helmet");
+    strcpy(drops.drop1, "Rusty Sword");
+    strcpy(drops.drop2, "Broken Chainmail");
+    strcpy(drops.drop3, "Burnt Helmet");
   }
 }
 
@@ -234,19 +227,19 @@ void EnemyListInit()
       miniBoss.level = player.level;
       EnemyInit(enemy);
     }
-    else if (enemy >= 4)
+    else if (enemy > 3)
     {
       cleared = true;
     }
+  }
     /*getEnemyType(enemy1.name);
     strcpy(enemy1.drop1, drop1);
     printf("%s", enemy1.drop1);
     strcpy(enemy1.drop2, drop2);
     printf("%s", enemy1.drop2);
     strcpy(enemy1.drop3, drop3);
-    printf("%s", enemy1.drop3);*/
+    printf("%s", enemy1.drop3);
 
-    /*
     getEnemyType(enemy1.name);
     strcpy(enemy1.drop1, drop1);
     printf("%s", enemy1.drop1);
@@ -263,7 +256,7 @@ void EnemyListInit()
     printf("%s", enemy1.drop2);
     strcpy(enemy1.drop3, drop3);
     printf("%s", enemy1.drop3);*/
-  }
+
 }
 
 void LvlUp()
@@ -304,6 +297,8 @@ void LvlUp()
     player.experience = 0;
     printf("You have gained 2 Max HP, 2 ATK, and 2 DEF!\nYour health has been fully restored\n");
     printf("Your power level is ever reaching near 9000!\n");
+    getch();
+    ClearScreen();
   }
   else
   {
@@ -338,10 +333,42 @@ void LvlUp()
     }
 
     printf("You healed for %i damage", player.maxhealth / 2);
+    getch();
+    ClearScreen();
   }
 
-  getch();
-  ClearScreen();
+  if (strcmp(cEnemy.name, enemy1.name) == 0)
+  {
+    getEnemyType(cEnemy.name);
+    for (int i = 0; i < _countof(battleUI); i++)
+    {
+      switch (i)
+      {
+      case 3:
+        printf(battleUI[i], player.name, player.level, cEnemy.name, cEnemy.level);
+        break;
+      case 5:
+        printf(battleUI[i], player.health, player.maxhealth, cEnemy.health, cEnemy.maxhealth);
+        break;
+      case 7:
+        player.attack += 1;
+        printf(battleUI[i], player.attack, cEnemy.attack);
+        break;
+      case 9:
+        player.defense += 1;
+        printf(battleUI[i], player.defense, cEnemy.defense);
+        break;
+      default:
+        printf(battleUI[i]);
+        break;
+      }
+    }
+    printf("You take the %s's %s, %s and %s for your own and prepare to continue onward\n", cEnemy.name, drops.drop1, drops.drop2, drops.drop3);
+    printf("+1 ATK and +2 DEF");
+
+    getch();
+    ClearScreen();
+  }
 }
 
 void calcDmg()
@@ -386,7 +413,7 @@ void calcDmg()
       }
       else if (strcmp(cEnemy.name, miniBoss.name) == 0)
       {
-        printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you. \n His body blocks the light coming in from the outside, and there is no way to escape without defeating him first.");
+        printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you.\nHis body blocks the light coming in from the outside, and there is no way to escape without defeating him first.");
       }
       else
       {
@@ -491,7 +518,7 @@ void calcDmg()
       player.health += 1;
       break;
     default:
-      printf("press 1 2 or 3\n");
+      printf("\nPress 1 2 or 3\n>>");
       choice = getch();
       break;
     }
@@ -558,6 +585,7 @@ void calcDmg()
       /* printf("%i", player.experience); */
 
       enemy++;
+
       LvlUp();
     }
   }
@@ -615,14 +643,6 @@ void GameStatePlayUpdate(float dt)
     exit(0);
   }
 
-  EnemyListInit();
-
-  if (cleared)
-  {
-    ClearScreen();
-    GameStateManagerSetNextState(GsStory);
-  }
-
   do
   {
     c = fgetc(chp);
@@ -631,6 +651,14 @@ void GameStatePlayUpdate(float dt)
   } while (c != EOF);
   fclose(chp);
 
+  EnemyListInit();
+
+  if (cleared)
+  {
+    ClearScreen();
+    GameStateManagerSetNextState(GsStory);
+    return;
+  }
 
   printf("Enter Command\n>> ");
   char player_input = getch();

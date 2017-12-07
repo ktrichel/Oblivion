@@ -30,7 +30,7 @@ extern "C" {	/* Assume C declarations for C++ */
 // Public Functions:
 //----------------------------------------------------------------------------*/
 
-void ScreenTransition();
+void ScreenTransition(int length);
 
 void ClearScreen();
 

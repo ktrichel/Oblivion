@@ -14,9 +14,9 @@ extern "c" {	/* assume c declarations for c++ */
 		int attack;
     int level;
     int experience;
-    /*char drop1[15];
-    char drop2[15];
-    char drop3[15];*/
+    char drop1[20];
+    char drop2[20];
+    char drop3[20];
 	} typedef CHARACTER;
 
 

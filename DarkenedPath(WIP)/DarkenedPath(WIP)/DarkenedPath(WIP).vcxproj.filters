@@ -78,6 +78,9 @@
     <ClInclude Include="Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RemoveNewLine.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utils.c">
@@ -115,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="GameStateMiku.c">
       <Filter>Game State\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoveNewLine.c">
+      <Filter>Platform</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
