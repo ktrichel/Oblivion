@@ -90,6 +90,30 @@ void GameStateStoryUpdate(float dt)
   case 1:
     Chapter2();
     break;
+  case 2:
+    Chapter1();
+    break;
+  case 3:
+    Chapter1();
+    break;
+  case 4:
+    Chapter1();
+    break;
+  case 5:
+    Chapter1();
+    break;
+  case 6:
+    Chapter1();
+    break;
+  case 7:
+    Chapter1();
+    break;
+  case 8:
+    Chapter1();
+    break;
+  case 9:
+    Chapter1();
+    break;
   default:
     break;
   }
@@ -194,12 +218,12 @@ void Chapter1()
 
 void Mini1()
 {
-	printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you. \n His body blocks the light coming in from the outside, and there is no one to escape without defeating him first.");
+	printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you. \n His body blocks the light coming in from the outside, and there is no way to escape without defeating him first.");
 	getch();
 	GameStateManagerSetNextState(GsPlay);
 }
 
-void Chapter2()
+void Chapter2() 
 {
 	printf("\"I'm glad we finally made it out of that dark place!\"\n\"I hope you're ready for your new adventure out in the real world.\"");
   getch();
@@ -300,7 +324,34 @@ void Epilogue()
   getchar();
   ClearScreen();
   printf("\"I'm sorry for having you be alone. I was not able to turn your sister and mother like I was for you. \nI had your older brother be my lieutenant while I waited for you to mature because I knew you had it in you.\n"
-         "Finish me and show me you have what it takes to dominate the kingdom that wants nothing but chaos in the world!\"\n(Show) him there's another way of doing this.\n(Finish) your father and give him what he wants");
-//  char choice[6] = gets();
-
+         "Finish me and show me you have what it takes to dominate the kingdom that wants nothing but chaos in the world!\"\n(Finish) your father and give him what he wants.\n(Show) him there's another way of doing this.\n>>");
+  
+  int chosen = 0;
+  
+  while (chosen == 0)
+  {
+    char choice[6] = gets();
+    strcpy(choice, toupper(choice));
+    if (choice == "FINISH")
+    {
+      ClearScreen();
+      printf("You deicide to bring your father peace from his darkened path.");
+      chosen = 1;
+    }
+    else if (choice == "SHOW")
+    {
+      ClearScreen();
+      chosen = 1;
+    }
+    else if (choice == "REPLAY")
+    {
+      ClearScreen(); 
+      Epilogue();
+    }
+    else
+    {
+      ClearScreen();
+      printf("Please type finish or show to decide your ending.\n If you'd like to listen to the situation again type replay.\n>>");
+    }
+  }
 }
