@@ -328,7 +328,7 @@ void Epilogue()
   getchar();
   ClearScreen();
   printf("\"I'm sorry for having you be alone. I was not able to turn your sister and mother like I was for you. \nI had your older brother be my lieutenant while I waited for you to mature because I knew you had it in you.\n"
-         "Finish me and show me you have what it takes to dominate the kingdom that wants nothing but chaos in the world!\"\n(Finish) your father and give him what he wants.\n(Show) him there's another way of doing this.\n>>");
+         "Finish me and show me you have what it takes to dominate the kingdom that wants nothing but chaos in the world!\"\n(Finish) your father and give him the rest he deserves.\n(Show) him there's another way of doing this.\n>>");
   
   int chosen = 0;
   
@@ -341,6 +341,12 @@ void Epilogue()
     {
       ClearScreen();
       printf("You deicide to bring your father peace from his darkened path.");
+      getchar();
+      ClearScreen();
+      printf("You leave your father's castle lost and confused on what to do next.");
+      getchar();
+      ClearScreen();
+      printf("\"Hey, why do you look so lost and lonely?\"");
       chosen = 1;
     }
     else if (choice == "SHOW")
@@ -356,7 +362,7 @@ void Epilogue()
     else
     {
       ClearScreen();
-      printf("Please type finish or show to decide your ending.\n If you'd like to listen to the situation again type replay.\n>>");
+      printf("Please type \"finish\" or \"show\" to decide your ending.\n If you'd like to listen to the situation again type replay.\n>>");
     }
   }
 }
