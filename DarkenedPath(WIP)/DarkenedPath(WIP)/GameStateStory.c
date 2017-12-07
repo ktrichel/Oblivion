@@ -99,19 +99,6 @@ void Chapter1()
 {
   CHARACTER c;
 
-  FILE *chp;
-  chp = fopen("chp.txt", "w");
-  char ch;
-  if (chp == NULL)
-  {
-    printf("Cannot open file for writing.\n");
-    exit(0);
-  }
-  
-  fprintf(chp, "%c", '1');
-  
-  fclose(chp);
-
   char parent[4] = "";
   char choice;
   char choice2;
