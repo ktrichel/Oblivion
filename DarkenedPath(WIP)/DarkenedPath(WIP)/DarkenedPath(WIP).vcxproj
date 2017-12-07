@@ -139,6 +139,7 @@
     <Text Include="FirstTime.txt" />
     <Text Include="gameover.txt" />
     <Text Include="miku.txt" />
+    <Text Include="Player.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
