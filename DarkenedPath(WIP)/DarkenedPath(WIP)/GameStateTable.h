@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 \file   GameStateTable.h
-\author Kyle Trichel and Drake Mathis
+\author Doug Schilling (edited by Kyle Trichel)
 \par    Course: GAM100F17
 \par    Copyright © 2016 DigiPen (USA) Corporation.
 \brief
