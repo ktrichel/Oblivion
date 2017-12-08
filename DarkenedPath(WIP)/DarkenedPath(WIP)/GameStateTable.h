@@ -34,6 +34,7 @@ extern "C" {	/* Assume C declarations for C++ */
 		GsPause,
 		GsMiku,
 		GsGameOver,
+    GsCredits,
 
 		/* Bookkeeping States: */
 		GsMax,

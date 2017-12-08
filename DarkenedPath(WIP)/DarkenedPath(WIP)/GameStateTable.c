@@ -20,6 +20,7 @@
 #include "GameStatePlay.h"
 #include "GameStatePause.h"
 #include "GameStateStory.h"
+#include "GameStateCredits.h"
 
 /*------------------------------------------------------------------------------
 // Private Consts:
@@ -64,6 +65,8 @@ static const GameStateTableEntry GameStateTab[GsMax] =
 	{ GameStateMikuInit, GameStateMikuUpdate, GameStateMikuExit },
 	/* Game Over */
 	{ GameStateGameOverInit, GameStateGameOverUpdate, GameStateGameOverExit },
+  /* Credits */
+  { GameStateCreditsInit, GameStateCreditsUpdate, GameStateCreditsExit },
 };
 
 /*------------------------------------------------------------------------------
