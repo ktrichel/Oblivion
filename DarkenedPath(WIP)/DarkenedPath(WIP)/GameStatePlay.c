@@ -653,7 +653,7 @@ void calcDmg()
       goto DEAD;
     }
 
-    printf("You have three options:\n1: normal strike\n2. heavy strike\n3. dodge\n>>");
+    printf("You have three options:\n1: Normal Strike\n2. Heavy Strike (Strong hit, minus health)\n3. Dodge (Heal)\n>>");
 
     //player choice
     choice = getch();
