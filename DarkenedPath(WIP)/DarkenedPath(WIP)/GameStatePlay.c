@@ -232,32 +232,142 @@ void EnemyListInit()
       cleared = true;
     }
   }
-    /*getEnemyType(enemy1.name);
-    strcpy(enemy1.drop1, drop1);
-    printf("%s", enemy1.drop1);
-    strcpy(enemy1.drop2, drop2);
-    printf("%s", enemy1.drop2);
-    strcpy(enemy1.drop3, drop3);
-    printf("%s", enemy1.drop3);
+  else if (c == '1')
+    {
+      if (enemy == 0)
+      {
+        strcpy(enemy1.name, "Grunt");
+        enemy1.level = 1;
+        EnemyInit(enemy);
+      }
+      else if (enemy == 1)
+      {
+        strcpy(enemy2.name, "Alert Grunt");
+        enemy2.level = 1;
+        EnemyInit(enemy);
+      }
+      else if (enemy == 2)
+      {
+        strcpy(enemy3.name, "Grunt Guard");
+        enemy3.level = 2;
+        EnemyInit(enemy);
+      }
+      else if (enemy == 3)
+      {
+        strcpy(miniBoss.name, "Captain");
+        miniBoss.level = player.level;
+        EnemyInit(enemy);
+      }
+      else if (enemy > 3)
+      {
+        cleared = true;
+      }
+    }
+  else if (c == '2')
+      {
+        if (enemy == 0)
+        {
+          strcpy(enemy1.name, "Grunt");
+          enemy1.level = 1;
+          EnemyInit(enemy);
+        }
+        else if (enemy == 1)
+        {
+          strcpy(enemy2.name, "Alert Grunt");
+          enemy2.level = 1;
+          EnemyInit(enemy);
+        }
+        else if (enemy == 2)
+        {
+          strcpy(enemy3.name, "Grunt Guard");
+          enemy3.level = 2;
+          EnemyInit(enemy);
+        }
+        else if (enemy == 3)
+        {
+          strcpy(miniBoss.name, "Captain");
+          miniBoss.level = player.level;
+          EnemyInit(enemy);
+        }
+        else if (enemy > 3)
+        {
+          cleared = true;
+        }
+      }
+  else if (c == '3')
+  {
+    if (enemy == 0)
+      {
+        strcpy(enemy1.name, "Grunt");
+        enemy1.level = 1;
+        EnemyInit(enemy);
+      }
+    else if (enemy == 1)
+      {
+        strcpy(enemy2.name, "Alert Grunt");
+        enemy2.level = 1;
+        EnemyInit(enemy);
+      }
+    else if (enemy == 2)
+      {
+        strcpy(enemy3.name, "Grunt Guard");
+        enemy3.level = 2;
+        EnemyInit(enemy);
+      }
+    else if (enemy == 3)
+      {
+        strcpy(miniBoss.name, "Captain");
+        miniBoss.level = player.level;
+        EnemyInit(enemy);
+      }
+    else if (enemy > 3)
+      {
+        cleared = true;
+      }
+  }
+  else if (c == '4')
+  {
+    if (enemy == 0)
+    {
+      strcpy(enemy1.name, "Erysichthon");
+      enemy1.level = 10;
+      EnemyInit(enemy);
+    }
+    else if (enemy > 1)
+    {
+      cleared = true;
+    }
+  }
 
-    getEnemyType(enemy1.name);
-    strcpy(enemy1.drop1, drop1);
-    printf("%s", enemy1.drop1);
-    strcpy(enemy1.drop2, drop2);
-    printf("%s", enemy1.drop2);
-    strcpy(enemy1.drop3, drop3);
-    printf("%s", enemy1.drop3);
-    strcpy(enemy3.name, "Grunt");
 
-    getEnemyType(enemy1.name);
-    strcpy(enemy1.drop1, drop1);
-    printf("%s", enemy1.drop1);
-    strcpy(enemy1.drop2, drop2);
-    printf("%s", enemy1.drop2);
-    strcpy(enemy1.drop3, drop3);
-    printf("%s", enemy1.drop3);*/
+        /*getEnemyType(enemy1.name);
+        strcpy(enemy1.drop1, drop1);
+        printf("%s", enemy1.drop1);
+        strcpy(enemy1.drop2, drop2);
+        printf("%s", enemy1.drop2);
+        strcpy(enemy1.drop3, drop3);
+        printf("%s", enemy1.drop3);
 
+        getEnemyType(enemy1.name);
+        strcpy(enemy1.drop1, drop1);
+        printf("%s", enemy1.drop1);
+        strcpy(enemy1.drop2, drop2);
+        printf("%s", enemy1.drop2);
+        strcpy(enemy1.drop3, drop3);
+        printf("%s", enemy1.drop3);
+        strcpy(enemy3.name, "Grunt");
+
+        getEnemyType(enemy1.name);
+        strcpy(enemy1.drop1, drop1);
+        printf("%s", enemy1.drop1);
+        strcpy(enemy1.drop2, drop2);
+        printf("%s", enemy1.drop2);
+        strcpy(enemy1.drop3, drop3);
+        printf("%s", enemy1.drop3);*/
+        
 }
+    
+      
 
 void LvlUp()
 {
