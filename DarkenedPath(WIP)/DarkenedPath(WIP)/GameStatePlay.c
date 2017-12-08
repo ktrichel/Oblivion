@@ -234,32 +234,142 @@ void EnemyListInit()
       cleared = true;
     }
   }
-    /*getEnemyType(enemy1.name);
-    strcpy(enemy1.drop1, drop1);
-    printf("%s", enemy1.drop1);
-    strcpy(enemy1.drop2, drop2);
-    printf("%s", enemy1.drop2);
-    strcpy(enemy1.drop3, drop3);
-    printf("%s", enemy1.drop3);
+  else if (c == '1')
+    {
+      if (enemy == 0)
+      {
+        strcpy(enemy1.name, "Grunt");
+        enemy1.level = 1;
+        EnemyInit(enemy);
+      }
+      else if (enemy == 1)
+      {
+        strcpy(enemy2.name, "Alert Grunt");
+        enemy2.level = 1;
+        EnemyInit(enemy);
+      }
+      else if (enemy == 2)
+      {
+        strcpy(enemy3.name, "Grunt Guard");
+        enemy3.level = 2;
+        EnemyInit(enemy);
+      }
+      else if (enemy == 3)
+      {
+        strcpy(miniBoss.name, "Captain");
+        miniBoss.level = player.level;
+        EnemyInit(enemy);
+      }
+      else if (enemy > 3)
+      {
+        cleared = true;
+      }
+    }
+  else if (c == '2')
+      {
+        if (enemy == 0)
+        {
+          strcpy(enemy1.name, "Grunt");
+          enemy1.level = 1;
+          EnemyInit(enemy);
+        }
+        else if (enemy == 1)
+        {
+          strcpy(enemy2.name, "Alert Grunt");
+          enemy2.level = 1;
+          EnemyInit(enemy);
+        }
+        else if (enemy == 2)
+        {
+          strcpy(enemy3.name, "Grunt Guard");
+          enemy3.level = 2;
+          EnemyInit(enemy);
+        }
+        else if (enemy == 3)
+        {
+          strcpy(miniBoss.name, "Captain");
+          miniBoss.level = player.level;
+          EnemyInit(enemy);
+        }
+        else if (enemy > 3)
+        {
+          cleared = true;
+        }
+      }
+  else if (c == '3')
+  {
+    if (enemy == 0)
+      {
+        strcpy(enemy1.name, "Grunt");
+        enemy1.level = 1;
+        EnemyInit(enemy);
+      }
+    else if (enemy == 1)
+      {
+        strcpy(enemy2.name, "Alert Grunt");
+        enemy2.level = 1;
+        EnemyInit(enemy);
+      }
+    else if (enemy == 2)
+      {
+        strcpy(enemy3.name, "Grunt Guard");
+        enemy3.level = 2;
+        EnemyInit(enemy);
+      }
+    else if (enemy == 3)
+      {
+        strcpy(miniBoss.name, "Captain");
+        miniBoss.level = player.level;
+        EnemyInit(enemy);
+      }
+    else if (enemy > 3)
+      {
+        cleared = true;
+      }
+  }
+  else if (c == '4')
+  {
+    if (enemy == 0)
+    {
+      strcpy(enemy1.name, "Erysichthon");
+      enemy1.level = 10;
+      EnemyInit(enemy);
+    }
+    else if (enemy > 1)
+    {
+      cleared = true;
+    }
+  }
 
-    getEnemyType(enemy1.name);
-    strcpy(enemy1.drop1, drop1);
-    printf("%s", enemy1.drop1);
-    strcpy(enemy1.drop2, drop2);
-    printf("%s", enemy1.drop2);
-    strcpy(enemy1.drop3, drop3);
-    printf("%s", enemy1.drop3);
-    strcpy(enemy3.name, "Grunt");
 
-    getEnemyType(enemy1.name);
-    strcpy(enemy1.drop1, drop1);
-    printf("%s", enemy1.drop1);
-    strcpy(enemy1.drop2, drop2);
-    printf("%s", enemy1.drop2);
-    strcpy(enemy1.drop3, drop3);
-    printf("%s", enemy1.drop3);*/
+        /*getEnemyType(enemy1.name);
+        strcpy(enemy1.drop1, drop1);
+        printf("%s", enemy1.drop1);
+        strcpy(enemy1.drop2, drop2);
+        printf("%s", enemy1.drop2);
+        strcpy(enemy1.drop3, drop3);
+        printf("%s", enemy1.drop3);
 
+        getEnemyType(enemy1.name);
+        strcpy(enemy1.drop1, drop1);
+        printf("%s", enemy1.drop1);
+        strcpy(enemy1.drop2, drop2);
+        printf("%s", enemy1.drop2);
+        strcpy(enemy1.drop3, drop3);
+        printf("%s", enemy1.drop3);
+        strcpy(enemy3.name, "Grunt");
+
+        getEnemyType(enemy1.name);
+        strcpy(enemy1.drop1, drop1);
+        printf("%s", enemy1.drop1);
+        strcpy(enemy1.drop2, drop2);
+        printf("%s", enemy1.drop2);
+        strcpy(enemy1.drop3, drop3);
+        printf("%s", enemy1.drop3);*/
+        
 }
+    
+      
 
 void LvlUp()
 {
@@ -450,8 +560,8 @@ void calcDmg()
       }
       else if (strcmp(cEnemy.name, miniBoss.name) == 0)
       {
-        printf("A figure walks out from behind a tree to stop you in your path.\n Its hair is made out of leaves , its face is covered by some sort of earthen mask, "
-          "\nand its body is covered with branches and a tattered robe. \"Fu herner da jat!\" says the witchly figure.\nYou have a feeling it will not allow you to pass easily."); /*Witch states you shall not pass in jibberish*/
+        printf("You reach just short of the mountain top and are led instead inside the mountain. You wonder inside the cavern and begin hearing \nsomething similar to heavy breathing. You decide it was just the wind in the high mountains; however,"
+          "\nyou stumble into a pile coins and create a large crashing and clanging sound! \nA dragon, whom is not fully grown, is awoken and ready to defend its treasure!");
       }
       else
       {
@@ -468,8 +578,8 @@ void calcDmg()
       }
       else if (strcmp(cEnemy.name, miniBoss.name) == 0)
       {
-        printf("A figure walks out from behind a tree to stop you in your path.\n Its hair is made out of leaves , its face is covered by some sort of earthen mask, "
-          "\nand its body is covered with branches and a tattered robe. \"Fu herner da jat!\" says the witchly figure.\nYou have a feeling it will not allow you to pass easily."); /*Witch states you shall not pass in jibberish*/
+        printf("As you approach the top floor, you see a center door with a grand entrace. You assume this is where your father is. \n"
+               "When you start to head towards the door, a pale, toned, red-eyed man, who looks quite young, blocks your path.");
       }
       else
       {
@@ -480,7 +590,7 @@ void calcDmg()
       {
         if (strcmp(cEnemy.name, enemy1.name) == 0)
         {
-          printf("You ready the torch you picked up to fight.\n");
+          printf("You ready Sildrasla you picked up to fight.\n");
           printf("The grunt is wearing a black tabard with an indistinguishable red insignia and has a rusty sword at the ready.\nIt's clear that he was unprepared for you to be here.\n");
         }
         else if (strcmp(cEnemy.name, miniBoss.name) == 0)
