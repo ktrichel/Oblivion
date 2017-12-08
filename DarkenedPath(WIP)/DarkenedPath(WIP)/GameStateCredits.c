@@ -33,7 +33,7 @@ void GameStateCreditsInit()
   // Setting Windows Console Text Color
   //----------------------------------------------------------------------------*/
   HANDLE  hConsole;
-  int k = 3;
+  int k = 142;
   int w;
   w = 15;
 
