@@ -126,6 +126,7 @@ void GameStateDigiPenLogoUpdate(float dt)
 
 	/* Print the message "copyright..." to the screen. */
 	printf("Copyright 2017 Digipen (USA) Corporation \n");
+	
 	/* Print the message "Press ENTER to continue..." to the screen. */
 	printf("Press any button to continue...");
 
