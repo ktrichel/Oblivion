@@ -1,8 +1,8 @@
 /******************************************************************************/
 /*!
-\file   GameStateDigiPenLogo.c
-\author Doug Schilling
-\par    Course: GAM100
+\file   GameStateMiku.c
+\author Kyle Trichel and Drake Mathis
+\par    Course: GAM100F17
 \par    Copyright © 2016 DigiPen (USA) Corporation.
 \brief
 */

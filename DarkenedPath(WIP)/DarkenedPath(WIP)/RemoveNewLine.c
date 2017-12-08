@@ -1,3 +1,12 @@
+/******************************************************************************/
+/*!
+\file   RemoveNewLine.c
+\author Kyle Trichel and Drake Mathis
+\par    Course: GAM100F17
+\par    Copyright © 2016 DigiPen (USA) Corporation.
+\brief
+*/
+/******************************************************************************/
 #include "stdafx.h"
 
 char *RemoveNewLine(char *string)

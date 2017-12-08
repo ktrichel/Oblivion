@@ -1,13 +1,12 @@
-/******************************************************************************
-filename    main.c
-author      Justin Chambers
-DP email    justin.chambers@digipen.edu
-course      GAM100 
-
-Brief Description:
-This file implements the main function and game loop.
-
-******************************************************************************/
+/******************************************************************************/
+/*!
+\file   DarkenedPath(WIP).c
+\author Kyle Trichel and Drake Mathis
+\par    Course: GAM100F17
+\par    Copyright © 2016 DigiPen (USA) Corporation.
+\brief
+*/
+/******************************************************************************/
 #include "stdafx.h" /* NULL, bool */
 #include "GameStateManager.h"
 

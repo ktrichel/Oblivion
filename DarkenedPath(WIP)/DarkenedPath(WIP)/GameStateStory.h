@@ -1,3 +1,12 @@
+/******************************************************************************/
+/*!
+\file   GameStateStory.h
+\author Kyle Trichel and Drake Mathis
+\par    Course: GAM100F17
+\par    Copyright © 2016 DigiPen (USA) Corporation.
+\brief
+*/
+/******************************************************************************/
 #pragma once
 //#pragma warning(disable : 4996)
 

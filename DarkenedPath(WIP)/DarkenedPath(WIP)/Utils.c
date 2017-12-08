@@ -1,11 +1,11 @@
 /******************************************************************************/
 /*!
-	\file   Utils.c
-	\author Doug Schilling
-	\par    Course: GAM100
-	\par    Copyright © 2016 DigiPen (USA) Corporation.
-	\brief
- */
+\file   Utils.c
+\author Kyle Trichel and Drake Mathis
+\par    Course: GAM100F17
+\par    Copyright © 2016 DigiPen (USA) Corporation.
+\brief
+*/
 /******************************************************************************/
 
 #include "stdafx.h" /* NULL, malloc/free, printf, strcmp, */

@@ -1,3 +1,12 @@
+/******************************************************************************/
+/*!
+\file   GameStatePlay.c
+\author Kyle Trichel and Drake Mathis
+\par    Course: GAM100F17
+\par    Copyright © 2016 DigiPen (USA) Corporation.
+\brief
+*/
+/******************************************************************************/
 //sudo apt - get install libncurses5 - dev
 //#include<curses.h>
 #include "stdafx.h"
