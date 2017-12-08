@@ -40,6 +40,7 @@
     <Text Include="Player.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="GameStateTitleScreen.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">

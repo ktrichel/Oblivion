@@ -138,6 +138,7 @@
     <Text Include="chp.txt" />
     <Text Include="FirstTime.txt" />
     <Text Include="gameover.txt" />
+    <Text Include="GameStateTitleScreen.txt" />
     <Text Include="miku.txt" />
     <Text Include="Player.txt" />
     <Text Include="ReadMe.txt" />
