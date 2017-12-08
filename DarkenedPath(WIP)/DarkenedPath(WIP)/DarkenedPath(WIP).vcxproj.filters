@@ -41,6 +41,8 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="GameStateTitleScreen.txt" />
+    <Text Include="copyright1.txt" />
+    <Text Include="copyright.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">

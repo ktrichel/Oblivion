@@ -136,6 +136,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="chp.txt" />
+    <Text Include="copyright.txt" />
+    <Text Include="copyright1.txt" />
     <Text Include="FirstTime.txt" />
     <Text Include="gameover.txt" />
     <Text Include="GameStateTitleScreen.txt" />
