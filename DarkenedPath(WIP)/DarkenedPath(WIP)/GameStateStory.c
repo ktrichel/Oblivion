@@ -130,11 +130,11 @@ void Chapter1()
   char parent[4] = "";
   char choice;
   char choice2;
-  printf("You awaken in a dark dungeon to a voice calling out to you with a single torch as your sole light source.\n\"...llo? Hey!\"\n");
+  printf("You awaken in a dark dungeon to a voice calling out to you with a single torch as your sole light source.\nMysterious Girl: \"...llo? Hey!\"\n");
   getch();
   ClearScreen();
 
-  printf("\"Are you lost? Do remember who you were last with?\"\n");
+  printf("Mysterious Girl: \"Are you lost? Do remember who you were last with?\"\n");
   printf("Mom?\nDad?\n>>");
 
   do
@@ -146,24 +146,24 @@ void Chapter1()
 
     if (strcmp(parent, "MOM") == 0)
     {
-      printf("\"So you were with your mom?\"\n(Y)es\n(N)o\n>>");
+      printf("Mysterious Girl: \"So you were with your mom?\"\n(Y)es\n(N)o\n>>");
       choice = getch();
     }
     else if (strcmp(parent, "DAD") == 0)
     {
-      printf("\"So you were with your dad?\"\n(Y)es\n(N)o\n>>");
+      printf("Mysterious Girl: \"So you were with your dad?\"\n(Y)es\n(N)o\n>>");
       choice = getch();
     }
     else
     {
-      printf("\"Were you with your mom or your dad?\"\n>>");
+      printf("Mysterious Girl: \"Were you with your mom or your dad?\"\n>>");
       continue;
     }
 
     if (toupper(choice) == 'N')
     {
       ClearScreen();
-      printf("\"Oh? Then who were you with?\"\n>>");
+      printf("Mysterious Girl: \"Oh? Then who were you with?\"\n>>");
     }
     else if (toupper(choice) != 'Y')
     {
@@ -175,7 +175,7 @@ void Chapter1()
   } while (toupper(choice) != 'Y');
 
   ClearScreen();
-  printf("\"Well, lets try to find a torch to look around this dark place. Maybe we can find them together!\"\n");
+  printf("Mysterious Girl: \"Well, lets try to find a torch to look around this dark place. Maybe we can find them together!\"\n");
   getch();
   ClearScreen();
 
@@ -183,7 +183,7 @@ void Chapter1()
   getch();
   ClearScreen();
 
-  printf("\"Oh hey I forgot to ask, what would you like me to call you?\"\n>> ");
+  printf("Mysterious Girl: \"Oh hey I forgot to ask, what would you like me to call you?\"\n>> ");
   scanf("%s", name);
   while (getchar() != '\n');
   *name = toupper(*name);
@@ -192,13 +192,13 @@ void Chapter1()
 
   do
   {
-    printf("\"%s right?\"\n(Y)es\n(N)o\n>> ", name);
+    printf("Mysterious Girl: \"%s right?\"\n(Y)es\n(N)o\n>> ", name);
     choice2 = getch();
 
     if (toupper(choice2) == 'N')
     {
       ClearScreen();
-      printf("\"Then what would you like to be called?\"\n>>");
+      printf("Mysterious Girl: \"Then what would you like to be called?\"\n>>");
       scanf("%s", name);
       while (getchar() != '\n');
       *name = toupper(*name);
@@ -208,11 +208,11 @@ void Chapter1()
   } while (toupper(choice2) != 'Y');
 
   ClearScreen();
-  printf("\"That's a nice name, I'm happy to meet you %s!\"\n", name);
+  printf("Mysterious Girl: \"That's a nice name, I'm happy to meet you %s!\"\n", name);
   getch();
   ClearScreen();
 
-  printf("\"I think I hear someone. I hope you're ready to get us out of here!\"\n\n\n\n\n\n\n\n\n\n");
+  printf("Mysterious Girl: \"I think I hear someone. I hope you're ready to get us out of here!\"\n\n\n\n\n\n\n\n\n\n");
   printf("\nPress any button to continue...");
 
   getch();
@@ -222,20 +222,20 @@ void Chapter1()
 
 void Mini1()
 {
-	printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you. \n His body blocks the light coming in from the outside, and there is no way to escape without defeating him first.");
+	printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you. \nHis body blocks the light coming in from the outside, and there is no way to escape without defeating him first.");
 	getch();
 	GameStateManagerSetNextState(GsPlay);
 }
 
 void Chapter2() 
 {
-	printf("\"I'm glad we finally made it out of that dark place!\"\n\"I hope you're ready for your new adventure out in the real world.\"");
+	printf("Mysterious Girl: \"I'm glad we finally made it out of that dark place!\"\n\"I hope you're ready for your new adventure out in the real world.\"");
   getch();
   ClearScreen();
 	printf("The sun seems to be overly bright, but you can see a long and windy path that goes through a large thicket.\nYou can also see the path exit the forest up a mountain with a large castle on top.");
   getchar();
   ClearScreen();
-	printf("\"We have a long way to go until we make it to our father's castle. \nThey weren't as kind to me and Mom as they were to you %s.\"", name);
+	printf("Mysterious Girl: \"We have a long way to go until we make it to your father's castle. \nThey weren't as kind to me and Mom as they were to you %s.\"", name);
   getchar();
   ClearScreen();
 	printf("You start to head down the darkened path into the forest which contains nothing but mysteries.");
@@ -248,7 +248,7 @@ void Chapter2()
 
 void Mini2()
 {
-	printf("A figure walks out from behind a tree to stop you in your path.\n Its hair is made out of leaves , its face is covered by some sort of earthen mask, "
+	printf("A figure walks out from behind a tree to stop you in your path.\nIts hair is made out of leaves , its face is covered by some sort of earthen mask, "
 			   "\nand its body is covered with branches and a tattered robe. \"Fu herner da jat!\" says the witchly figure.\nYou have a feeling it will not allow you to pass easily."); /*Witch states you shall not pass in jibberish*/
   getch();
   ClearScreen();
@@ -258,13 +258,13 @@ void Mini2()
 
 void Chapter3()
 {
-  printf("\"That banshee sure was mad about something. I hope we are able to survive through these mountains up ahead.\"");
+  printf("Mysterious Girl: \"That banshee sure was mad about something. I hope we are able to survive through these mountains up ahead.\"");
   getch();
   ClearScreen();
-  printf("\"I heard our father joined the bats. The bats are going to destory anyone that doesn't follow their ideals. \n That's why me and mom...\"");
+  printf("Mysterious Girl: \"I heard your father joined the bats. The bats are going to destory anyone that doesn't follow their ideals. \nThat's why me and Mom...\"");
   getch();
   ClearScreen();
-  printf("You start ascending the mountain... Suddenly a rock golem unravels himself and nearly crushes you! \nYou wonder why the golem is so aggressive when you have done nothing. \n You then wonder if the banshee attacking you wasn't a mistake...");
+  printf("You start ascending the mountain... Suddenly a rock golem unravels himself and nearly crushes you! \nYou wonder why the golem is so aggressive when you have done nothing. \nYou then wonder if the banshee attacking you wasn't a mistake...");
   getch();
   ClearScreen();
 
@@ -281,13 +281,13 @@ void Mini3()
 
 void Chapter4()
 {
-  printf("\"I can't believe you found so much treasure! I would try to hurry out of here \n there may be another dragon, since that dragon didn't look too old.\"");
+  printf("Mysterious Girl: \"I can't believe you found so much treasure! I would try to hurry out of here \nthere may be another dragon, since that dragon didn't look too old.\"");
   getchar();
   ClearScreen();
-  printf("You rummage through the coins, gathering whatever treasure you can carry, and exit through the cave on the other side of the mountain.\n You then reach the top of the mountain, which is a large plateu that has a castle on its surface.");
+  printf("You rummage through the coins, gathering whatever treasure you can carry, and exit through the cave on the other side of the mountain.\nYou then reach the top of the mountain, which is a large plateu that has a castle on its surface.");
   getch();
   ClearScreen();
-  printf("\"Hey %s, I think that is our father's castle. You should go in and meet him, \nyou may be able to learn more about what happened.\"", name);
+  printf("Mysterious Girl: \"Hey %s, I think that is our father's castle. You should go in and meet him, \nyou may be able to learn more about what happened.\"", name);
   getchar();
   ClearScreen();
   printf("You approach the large doors that reach the clouds, and the doors start to slowly creak open. \nA group of knights pour through the door and are ready to defend their castle.");
@@ -346,11 +346,29 @@ void Epilogue()
       printf("You leave your father's castle lost and confused on what to do next.");
       getchar();
       ClearScreen();
-      printf("\"Hey, why do you look so lost and lonely?\"");
+      printf("Sister: \"Hey, why do you look so lost and lonely? Never forget that we are always here for you.\"");
+      getchar();
+      ClearScreen();
+      printf("You turn to see your sister's face, longing for your father's words not to be true.");
+      getchar();
+      ClearScreen();
+      printf("You see nothing but your father's castle partially destroyed. However, when you look around you can see the edges of the kingdom and distant lands.");
+      getchar();
+      ClearScreen();
+      printf("Your curiosity of the world draws you towards the nearest castle you can see, in order to study the people\nand prove to yourself that your father was wrong about the kingdom.");
+      getchar();
+      ClearScreen();
+      GameStateManagerSetNextState(GsCredits);
       chosen = 1;
     }
     else if (choice == "SHOW")
     {
+      ClearScreen();
+      printf("");
+      getchar();
+      ClearScreen();
+      printf("");
+      getchar();
       ClearScreen();
       chosen = 1;
     }
@@ -362,7 +380,7 @@ void Epilogue()
     else
     {
       ClearScreen();
-      printf("Please type \"finish\" or \"show\" to decide your ending.\n If you'd like to listen to the situation again type replay.\n>>");
+      printf("Please type \"finish\" or \"show\" to decide your ending.\nIf you'd like to listen to the situation again type \"replay\".\n>>");
     }
   }
 }
