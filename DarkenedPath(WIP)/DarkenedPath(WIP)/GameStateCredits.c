@@ -9,6 +9,7 @@
 /******************************************************************************/
 #include "GameStateCredits.h"
 #include "GameStateTable.h"
+#include "stdafx.h"
 
 
 void GameStateCreditsInit()
