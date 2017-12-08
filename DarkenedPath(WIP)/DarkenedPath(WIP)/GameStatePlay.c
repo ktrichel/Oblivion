@@ -610,6 +610,11 @@ void calcDmg()
 
   if (player.health > 0)
   {
+    if (cEnemy.health <= 0)
+    {
+      goto DEAD;
+    }
+
     printf("You have three options:\n1: normal strike\n2. heavy strike\n3. dodge\n>>");
 
     //player choice
@@ -680,6 +685,44 @@ void calcDmg()
 
   Wait(500);
 
+  DEAD:if (cEnemy.health <= 0)
+  {
+    cEnemy.health = 0;
+
+    ClearScreen();
+
+    for (int i = 0; i < _countof(battleUI); i++)
+    {
+      switch (i)
+      {
+      case 3:
+        printf(battleUI[i], player.name, player.level, cEnemy.name, cEnemy.level);
+        break;
+      case 5:
+        printf(battleUI[i], player.health, player.maxhealth, cEnemy.health, cEnemy.maxhealth);
+        break;
+      case 7:
+        printf(battleUI[i], player.attack, cEnemy.attack);
+        break;
+      case 9:
+        printf(battleUI[i], player.defense, cEnemy.defense);
+        break;
+      default:
+        printf(battleUI[i]);
+        break;
+      }
+    }
+    printf("You have defeated the %s", cEnemy.name);
+    getch();
+
+    player.experience = player.experience + cEnemy.experience;
+    /* printf("%i", player.experience); */
+
+    enemy++;
+
+    LvlUp();
+  }
+
   if (cEnemy.health > 0)
   {
 
@@ -709,45 +752,8 @@ void calcDmg()
 
     getch();
     BattleUI();
+
     return;
-  }
-
-  if (cEnemy.health <= 0)
-  {
-      cEnemy.health = 0;
-    
-      ClearScreen();
-
-      for (int i = 0; i < _countof(battleUI); i++)
-      {
-        switch (i)
-        {
-        case 3:
-          printf(battleUI[i], player.name, player.level, cEnemy.name, cEnemy.level);
-          break;
-        case 5:
-          printf(battleUI[i], player.health, player.maxhealth, cEnemy.health, cEnemy.maxhealth);
-          break;
-        case 7:
-          printf(battleUI[i], player.attack, cEnemy.attack);
-          break;
-        case 9:
-          printf(battleUI[i], player.defense, cEnemy.defense);
-          break;
-        default:
-          printf(battleUI[i]);
-          break;
-        }
-      }
-      printf("You have defeated the %s", cEnemy.name);
-      getch();
-
-      player.experience = player.experience + cEnemy.experience;
-      /* printf("%i", player.experience); */
-
-      enemy++;
-
-      LvlUp();
   }
 
 }
