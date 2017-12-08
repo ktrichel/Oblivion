@@ -72,7 +72,7 @@ void GameStateMainMenuInit()
 		/*   Select an option: */
 		/*     (P)lay */
 		/*     (Q)uit */
-		printf("Select an option:\n(P)lay\n(Q)uit\n");
+		printf("Select an option:\n(P)lay\n(C)redits\n(Q)uit\n");
 
 }
 
@@ -100,6 +100,10 @@ void GameStateMainMenuUpdate(float dt)
 			/* Tell the game state manager to quit the game (GsQuit). */
 			GameStateManagerSetNextState(GsMiku);
 		}
+    else if (toupper(option) == 'Q')
+    {
+      GameStateManagerSetNextState(GsCredits);
+    }
 		else
 		{
 			/* Display an error message if an invalid command is entered. */

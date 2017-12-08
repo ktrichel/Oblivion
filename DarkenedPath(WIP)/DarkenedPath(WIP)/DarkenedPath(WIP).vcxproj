@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
+    <ClInclude Include="GameStateCredits.h" />
     <ClInclude Include="GameStateDigiPenLogo.h" />
     <ClInclude Include="GameStateGameOver.h" />
     <ClInclude Include="GameStateMainMenu.h" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DarkenedPath%28WIP%29.c" />
+    <ClCompile Include="GameStateCredits.c" />
     <ClCompile Include="GameStateDigiPenLogo.c" />
     <ClCompile Include="GameStateGameOver.c" />
     <ClCompile Include="GameStateMainMenu.c" />
