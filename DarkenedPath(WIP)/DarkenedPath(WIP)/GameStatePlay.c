@@ -40,10 +40,12 @@ char *battleUI[] =
   "|_|______|______|______|______|______|______|______|______|______|______|_|______|______|______|______|______|______|______|_|\n",
 };
 bool cleared = false;
+bool dead = false;
 
 void GameStatePlayInit()
 {
   enemy = 0;
+  dead = false;
   int i = 0;
   char *end;
 
@@ -413,12 +415,12 @@ void calcDmg()
       }
       else if (strcmp(cEnemy.name, miniBoss.name) == 0)
       {
-        printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you.\nHis body blocks the light coming in from the outside, and there is no way to escape without defeating him first.");
+        printf("As you reach near the end of the tunnel, a man as large as an ogre emerges from his chair to face you.\nHis body blocks the light coming in from the outside, and there is no way to escape without defeating him first.\n");
       }
       else
       {
         printf("You ready your rusty sword to fight.\n");
-        printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.");
+        printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.\n");
       }
     }
     if (c == '1')
@@ -496,12 +498,19 @@ void calcDmg()
   } while (c != EOF);
   fclose(chp);
 
-  if (cEnemy.health > 0)
+  if (player.health > 0)
   {
     printf("You have three options:\n1: normal strike\n2. heavy strike\n3. dodge\n>>");
 
     //player choice
     choice = getch();
+    while (choice != '1' && choice != '2' && choice != '3')
+    {
+      ClearScreen();
+      printf("Press 1 2 or 3\n>>");
+      choice = getch();
+    }
+
     switch (choice)
     {
     case '1':
@@ -511,23 +520,59 @@ void calcDmg()
     case '2':
       printf("\nYou swing at %s with all your might\n", cEnemy.name);
       cEnemy.health = cEnemy.health - ((player.attack + 1) - cEnemy.defense);
-      player.health -= 1;
+      player.health -= ceil((double)player.maxhealth / 5);
       break;
     case '3':
       printf("\nYou attempt to dodge the next attack\n");
-      player.health += 1;
-      break;
-    default:
-      printf("\nPress 1 2 or 3\n>>");
-      choice = getch();
+      player.health += ceil((double)player.defense / 2);
       break;
     }
+
+    if (player.health > player.maxhealth)
+    {
+      player.health = player.maxhealth;
+    }
+  }
+
+  else if (player.health <= 0)
+  {
+    player.health = 0;
+
+    ClearScreen();
+
+    for (int i = 0; i < _countof(battleUI); i++)
+    {
+      switch (i)
+      {
+      case 3:
+        printf(battleUI[i], player.name, player.level, cEnemy.name, cEnemy.level);
+        break;
+      case 5:
+        printf(battleUI[i], player.health, player.maxhealth, cEnemy.health, cEnemy.maxhealth);
+        break;
+      case 7:
+        printf(battleUI[i], player.attack, cEnemy.attack);
+        break;
+      case 9:
+        printf(battleUI[i], player.defense, cEnemy.defense);
+        break;
+      default:
+        printf(battleUI[i]);
+        break;
+      }
+    }
+    printf("You have been defeated by %s\n", cEnemy.name);
+    getch();
+
+    dead = true;
+    return;
   }
 
   Wait(500);
 
   if (cEnemy.health > 0)
   {
+
     /*enemy choice */
     r = (rand() % 3) + 1;
     switch (r)
@@ -539,12 +584,17 @@ void calcDmg()
     case 2:
       printf("The %s swings a heavy blow at you\n", cEnemy.name);
       player.health = player.health - ((cEnemy.attack + 1) - player.defense);
-      cEnemy.health -= 1;
+      cEnemy.health -= ceil((double)cEnemy.maxhealth / 5);
       break;
     case 3:
       printf("The %s tries to dodge your attack\n", cEnemy.name);
-      cEnemy.health += 1;
+      cEnemy.health += ceil((double)cEnemy.defense / 2);
       break;
+    }
+
+    if (cEnemy.health > cEnemy.maxhealth)
+    {
+      cEnemy.health = cEnemy.maxhealth;
     }
 
     getch();
@@ -554,7 +604,8 @@ void calcDmg()
 
   if (cEnemy.health <= 0)
   {
-    {
+      cEnemy.health = 0;
+    
       ClearScreen();
 
       for (int i = 0; i < _countof(battleUI); i++)
@@ -587,8 +638,8 @@ void calcDmg()
       enemy++;
 
       LvlUp();
-    }
   }
+
 }
 
 void BattleUI()
@@ -657,6 +708,12 @@ void GameStatePlayUpdate(float dt)
   {
     ClearScreen();
     GameStateManagerSetNextState(GsStory);
+    return;
+  }
+  if (dead)
+  {
+    ClearScreen();
+    GameStateManagerSetNextState(GsGameOver);
     return;
   }
 

@@ -15,6 +15,7 @@
 #include "Utils.h"
 #include <time.h>
 #include "RemoveNewLine.h"
+#include <math.h>
 
 
 // TODO: reference additional headers your program requires here
