@@ -100,7 +100,7 @@ void GameStateMainMenuUpdate(float dt)
 			/* Tell the game state manager to quit the game (GsQuit). */
 			GameStateManagerSetNextState(GsMiku);
 		}
-    else if (toupper(option) == 'Q')
+    else if (toupper(option) == 'C')
     {
       GameStateManagerSetNextState(GsCredits);
     }

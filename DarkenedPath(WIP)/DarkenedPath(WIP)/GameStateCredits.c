@@ -7,6 +7,7 @@
 \brief
 */
 /******************************************************************************/
+#include "stdafx.h"
 #include "GameStateCredits.h"
 #include "GameStateTable.h"
 
@@ -18,36 +19,50 @@ void GameStateCreditsInit()
 	//----------------------------------------------------------------------------*/
 	HWND console = GetConsoleWindow();
 
-  system("mode 160,63");   //Set mode to ensure window does not exceed buffer size
-  SMALL_RECT WinRect = { 0, 0, 160, 63 };   //New dimensions for window in 8x12 pixel chars
+  system("mode 239,65");   //Set mode to ensure window does not exceed buffer size
+  SMALL_RECT WinRect = { 0, 0, 239, 65 };   //New dimensions for window in 8x12 pixel chars
   SMALL_RECT* WinSize = &WinRect;
   SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), true, WinSize);   //Set new size for window
 
 	HWND consoleWindow = GetConsoleWindow();
 
-	SetWindowPos(consoleWindow, 0, 300, 0, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+	SetWindowPos(consoleWindow, 0, -4, -4, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
 
-	/*------------------------------------------------------------------------------
-	// Setting Windows Console Text Color
-	//----------------------------------------------------------------------------*/
-	//HANDLE  hConsole;
-	//int k = 11;
-	//int w;
-	//w = 15;
-  //
-  //
-	//hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-  //
-  //
-	///* you can loop k higher to see more color choices */
-	///* if echo does not work delete for look and set k = a value i.e k=4 */
-  //
- //     SetConsoleTextAttribute(hConsole, k);
- //
- //hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
- //
- //SetConsoleTextAttribute(hConsole, w);
- //Wait(500);
+  /*------------------------------------------------------------------------------
+  // Setting Windows Console Text Color
+  //----------------------------------------------------------------------------*/
+  HANDLE  hConsole;
+  int k = 3;
+  int w;
+  w = 15;
+
+
+  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+
+  /* you can loop k higher to see more color choices */
+  /* if echo does not work delete for look and set k = a value i.e k=4 */
+
+
+  FILE *pfile = fopen("copyright1.txt", "r");
+  char *s[189];
+  if (pfile == NULL)
+  {
+    printf("Cannot open file for reading.\n");
+    exit(0);
+  }
+  while (fgets(s, 162, pfile))
+  {
+    SetConsoleTextAttribute(hConsole, k);
+    printf("%s", s);
+  }
+
+  fclose(pfile);
+
+  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+  SetConsoleTextAttribute(hConsole, w);
+  Wait(500);
 }
 
 void GameStateCreditsUpdate(float dt)

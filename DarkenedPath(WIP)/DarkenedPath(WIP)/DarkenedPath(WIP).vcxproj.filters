@@ -40,9 +40,15 @@
     <Text Include="Player.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="GameStateTitleScreen.txt" />
-    <Text Include="copyright1.txt" />
-    <Text Include="copyright.txt" />
+    <Text Include="GameStateTitleScreen.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="copyright.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="copyright1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">
