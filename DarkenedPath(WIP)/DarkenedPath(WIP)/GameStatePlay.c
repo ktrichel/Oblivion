@@ -140,14 +140,48 @@ void GameStatePlayInit()
   cleared = false;
 }
 
-void getEnemyType(char name[20])
+int getEnemyType(char name[20])
 {
-  if (strcmp(name, enemy1.name) == 0)
+  if (strcmp(name, "Grunt") == 0)
   {
     strcpy(drops.drop1, "Rusty Sword");
     strcpy(drops.drop2, "Broken Chainmail");
     strcpy(drops.drop3, "Burnt Helmet");
+    return 1;
   }
+  if (strcmp(name, "Captain") == 0)
+  {
+    strcpy(drops.drop1, "Basic Sword");
+    strcpy(drops.drop2, "Worn Chainmail");
+    strcpy(drops.drop3, "Scratched Helmet");
+    return 1;
+  }
+  if (strcmp(name, "Witch") == 0)
+  {
+    return 1;
+  }
+  /*if (strcmp(name, "Treant") == 0)
+  {
+  return 1;
+  }*/
+  /*if (strcmp(name, "Golem") == 0)
+  {
+  return 1;
+  }*/
+  if (strcmp(name, "Baby Dragon") == 0)
+  {
+    return 1;
+  }
+  /*if (strcmp(name, "Knights") == 0)
+  {
+  return 1;
+  }*/
+  if (strcmp(name, "Lieutenant") == 0)
+  {
+    return 1;
+  }
+
+  return 0;
 }
 
 void EnemyInit(int enemy)
@@ -247,7 +281,7 @@ void EnemyListInit()
     {
       if (enemy == 0)
       {
-        strcpy(enemy1.name, "Grunt");
+        strcpy(enemy1.name, "Treant");
         enemy1.level = 1;
         EnemyInit(enemy);
       }
@@ -265,7 +299,7 @@ void EnemyListInit()
       }
       else if (enemy == 3)
       {
-        strcpy(miniBoss.name, "Captain");
+        strcpy(miniBoss.name, "Witch");
         miniBoss.level = player.level;
         EnemyInit(enemy);
       }
@@ -278,7 +312,7 @@ void EnemyListInit()
       {
         if (enemy == 0)
         {
-          strcpy(enemy1.name, "Grunt");
+          strcpy(enemy1.name, "Golem");
           enemy1.level = 1;
           EnemyInit(enemy);
         }
@@ -296,7 +330,7 @@ void EnemyListInit()
         }
         else if (enemy == 3)
         {
-          strcpy(miniBoss.name, "Captain");
+          strcpy(miniBoss.name, "Baby Dragon");
           miniBoss.level = player.level;
           EnemyInit(enemy);
         }
@@ -309,7 +343,7 @@ void EnemyListInit()
   {
     if (enemy == 0)
       {
-        strcpy(enemy1.name, "Grunt");
+        strcpy(enemy1.name, "Knights");
         enemy1.level = 1;
         EnemyInit(enemy);
       }
@@ -327,7 +361,7 @@ void EnemyListInit()
       }
     else if (enemy == 3)
       {
-        strcpy(miniBoss.name, "Captain");
+        strcpy(miniBoss.name, "Lieutenant");
         miniBoss.level = player.level;
         EnemyInit(enemy);
       }
@@ -349,8 +383,6 @@ void EnemyListInit()
       cleared = true;
     }
   }
-
-
         /*getEnemyType(enemy1.name);
         strcpy(enemy1.drop1, drop1);
         printf("%s", enemy1.drop1);
@@ -377,8 +409,6 @@ void EnemyListInit()
         printf("%s", enemy1.drop3);*/
         
 }
-    
-      
 
 void LvlUp()
 {
@@ -458,9 +488,8 @@ void LvlUp()
     ClearScreen();
   }
 
-  if (strcmp(cEnemy.name, enemy1.name) == 0)
+  if (getEnemyType(cEnemy.name))
   {
-    getEnemyType(cEnemy.name);
     for (int i = 0; i < _countof(battleUI); i++)
     {
       switch (i)
@@ -476,7 +505,7 @@ void LvlUp()
         printf(battleUI[i], player.attack, cEnemy.attack);
         break;
       case 9:
-        player.defense += 1;
+        player.defense += 2;
         printf(battleUI[i], player.defense, cEnemy.defense);
         break;
       default:

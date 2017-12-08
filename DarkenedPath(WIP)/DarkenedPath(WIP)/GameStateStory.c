@@ -308,7 +308,8 @@ void Chapter4()
 
 void Mini4()
 {
-  printf("As you approach the top floor, you see a center door with a grand entrace. You assume this is where your father is. \nAs you approach the door a pale, toned, red-eyed man, who looks quite young, blocks your path.");
+  printf("As you approach the top floor, you see a center door with a grand entrace. You assume this is where your father is. "
+         "\nAs you approach the door a pale, toned, red-eyed man, who looks quite young, blocks your path.");
 
   GameStateManagerSetNextState(GsPlay);
 }
