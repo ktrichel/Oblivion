@@ -300,7 +300,7 @@ void Father()
 
 void Epilogue()
 {
-  printf("You deal the finishing blow to the dragon as it collapses on the ground. \nYou're father falls off, and kneels in front of you.");
+  printf("You walk up to your father, ready for what he has to say for his redemption.");
   getch();
   ClearScreen();
   printf("\"I'm sorry for having you be alone. I was not able to turn your sister and mother like I was for you. \nI had your older brother be my lieutenant while I waited for you to mature because I knew you had it in you.\n"
@@ -377,10 +377,12 @@ void Epilogue()
 		    else
 		    {
 			    ClearScreen();
+          printf("Please type \"C\" if you would like to go to Camelot with your father \nor press \"D\" to go to distant lands with your father.");
 		    }
 	    }
-	  ClearScreen();
-	  GameStateManagerSetNextState(GsCredits);
+      getch();
+	    ClearScreen();
+	    GameStateManagerSetNextState(GsCredits);
     }
     else if (strcmp(choice, "REPLAY") == 0)
     {

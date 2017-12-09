@@ -158,26 +158,44 @@ int getEnemyType(char name[20])
   }
   if (strcmp(name, "Witch") == 0)
   {
+    strcpy(drops.drop1, "Mystical Sword");
+    strcpy(drops.drop2, "Enchanted Cloak");
+    strcpy(drops.drop3, "Earthen Mask");
     return 1;
   }
-  /*if (strcmp(name, "Treant") == 0)
+  if (strcmp(name, "Treant") == 0)
   {
-  return 1;
-  }*/
-  /*if (strcmp(name, "Golem") == 0)
+    strcpy(drops.drop1, "Enchanted Branch");
+    strcpy(drops.drop2, "Worn Chainmail");
+    strcpy(drops.drop3, "Scratched Helmet");
+    return 1;
+  }
+  if (strcmp(name, "Golem") == 0)
   {
-  return 1;
-  }*/
+    strcpy(drops.drop1, "Basic Sword");
+    strcpy(drops.drop2, "Worn Chainmail");
+    strcpy(drops.drop3, "Scratched Helmet");
+    return 1;
+  }
   if (strcmp(name, "Baby Dragon") == 0)
   {
+    strcpy(drops.drop1, "Basic Sword");
+    strcpy(drops.drop2, "Worn Chainmail");
+    strcpy(drops.drop3, "Scratched Helmet");
     return 1;
   }
-  /*if (strcmp(name, "Knights") == 0)
+  if (strcmp(name, "Knights") == 0)
   {
-  return 1;
-  }*/
+    strcpy(drops.drop1, "Basic Sword");
+    strcpy(drops.drop2, "Worn Chainmail");
+    strcpy(drops.drop3, "Scratched Helmet");
+    return 1;
+  }
   if (strcmp(name, "Lieutenant") == 0)
   {
+    strcpy(drops.drop1, "Basic Sword");
+    strcpy(drops.drop2, "Worn Chainmail");
+    strcpy(drops.drop3, "Scratched Helmet");
     return 1;
   }
 
@@ -287,13 +305,13 @@ void EnemyListInit()
       }
       else if (enemy == 1)
       {
-        strcpy(enemy2.name, "Alert Grunt");
+        strcpy(enemy2.name, "Unicorn");
         enemy2.level = 1;
         EnemyInit(enemy);
       }
       else if (enemy == 2)
       {
-        strcpy(enemy3.name, "Grunt Guard");
+        strcpy(enemy3.name, "Hippogriff");
         enemy3.level = 2;
         EnemyInit(enemy);
       }
@@ -318,19 +336,19 @@ void EnemyListInit()
         }
         else if (enemy == 1)
         {
-          strcpy(enemy2.name, "Alert Grunt");
+          strcpy(enemy2.name, "Manticore");
           enemy2.level = 1;
           EnemyInit(enemy);
         }
         else if (enemy == 2)
         {
-          strcpy(enemy3.name, "Grunt Guard");
+          strcpy(enemy3.name, "Harpy");
           enemy3.level = 2;
           EnemyInit(enemy);
         }
         else if (enemy == 3)
         {
-          strcpy(miniBoss.name, "Baby Dragon");
+          strcpy(miniBoss.name, "Young Dragon");
           miniBoss.level = player.level;
           EnemyInit(enemy);
         }
@@ -349,13 +367,13 @@ void EnemyListInit()
       }
     else if (enemy == 1)
       {
-        strcpy(enemy2.name, "Alert Grunt");
+        strcpy(enemy2.name, "Gargoyle");
         enemy2.level = 1;
         EnemyInit(enemy);
       }
     else if (enemy == 2)
       {
-        strcpy(enemy3.name, "Grunt Guard");
+        strcpy(enemy3.name, "Suit of Armor");
         enemy3.level = 2;
         EnemyInit(enemy);
       }
@@ -422,7 +440,7 @@ void LvlUp()
 
     player.experience = 0;
     printf("You have gained 2 Max HP, 2 ATK, and 2 DEF!\nYour health has been fully restored\n");
-    printf("Your power level is ever reaching near 9000!\n");
+    printf("Your powereth level is ever reaching near 99!\n");
     getch();
     ClearScreen();
   }
@@ -535,8 +553,8 @@ void calcDmg()
     {
       if (strcmp(cEnemy.name, enemy1.name) == 0)
       {
-        printf("You ready the torch you picked up to fight.\n");
-        printf("The grunt is wearing a black tabard with an indistinguishable red insignia and has a rusty sword at the ready.\nIt's clear that he was unprepared for you to be here.\n");
+        printf("You ready your sword you picked up to fight.\n");
+        printf("The treant is covered in moss, and has its branches reaching out to you.\nIt is clear that it does not not want you to be here.\n");
       }
       else if (strcmp(cEnemy.name, miniBoss.name) == 0)
       {
@@ -545,7 +563,7 @@ void calcDmg()
       }
       else
       {
-        printf("You ready your rusty sword to fight.\n");
+        printf("You ready your enchanted sword to fight.\n");
         printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.");
       }
     }
