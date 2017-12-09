@@ -144,51 +144,15 @@ void Chapter1()
   ClearScreen();
 
   printf("Mysterious Girl: \"Are you lost? Do remember who you were last with?\"\n");
-  printf("Mom?\nDad?\n>>");
-
-  do
-  {
-    scanf("%3s", parent);
-    while (getchar() != '\n');
-    strupr(parent);
-    ClearScreen();
-
-    if (strcmp(parent, "MOM") == 0)
-    {
-      printf("Mysterious Girl: \"So you were with your mom?\"\n(Y)es\n(N)o\n>>");
-      choice = getch();
-    }
-    else if (strcmp(parent, "DAD") == 0)
-    {
-      printf("Mysterious Girl: \"So you were with your dad?\"\n(Y)es\n(N)o\n>>");
-      choice = getch();
-    }
-    else
-    {
-      printf("Mysterious Girl: \"Were you with your mom or your dad?\"\n>>");
-      continue;
-    }
-
-    if (toupper(choice) == 'N')
-    {
-      ClearScreen();
-      printf("Mysterious Girl: \"Oh? Then who were you with?\"\n>>");
-    }
-    else if (toupper(choice) != 'Y')
-    {
-      ClearScreen();
-      printf("Please type Y or N\n>>");
-      choice = getch();
-    }
-
-  } while (toupper(choice) != 'Y');
-
+  getch();
   ClearScreen();
-  printf("Mysterious Girl: \"Well, lets try to find a torch to look around this dark place. Maybe we can find them together!\"\n");
+  printf("\"...\"");
+  ClearScreen();
+  printf("Mysterious Girl: \"Well... lets try to find a way to look around this dark place. Maybe we can find one of your parents together!\"\n");
   getch();
   ClearScreen();
 
-  printf("*You pick up the torch*\n");
+  printf("You pick up the torch\n");
   getch();
   ClearScreen();
 
@@ -380,41 +344,41 @@ void Epilogue()
       printf("Sister: \"I knew you could bring him away from his darkened path. Thank you...\"");
       getch();
       ClearScreen();
-	  printf("You turn to see your sister's face, longing for your father's words not to be true.");
-	  getch();
-	  ClearScreen();
-	  printf("To your despair, you see nothing but your father's partially destroyed castle.");
-	  getch();
-	  ClearScreen();
-	  printf("Father: \"I tried to make us all immortal; however, your sister was too young and your mother was to frail after birthing you.\n I'm sorry %s, I hope you'll forgive me\"", c.name);
-	  getch();
-	  ClearScreen();
-	  printf("You nod your head, letting your father know he is forgiven. You then walk with your father to the edge of the mountain.\n");
-	  getch();
-	  ClearScreen();
-	  printf("Father: \"Where do you think we should go now %s?\"\n(C)amelot\n(D)istant Lands");
-	  char choice2 = getch();
-	  strcpy(choice2, toupper(choice2));
-	  int chosen = 0;
-	  while (chosen == 0)
-	  {
-		  if (choice2 == 'C')
-		  {
-			  ClearScreen();
-			  printf("You and your father head towards Camelot to right the wrongs he has committed.");
-			  chosen = 1;
-		  }
-		  else if (choice2 == 'D')
-		  {
-			  ClearScreen();
-			  printf("You and your father head towards Camelot to hide away and explore the world together for an eternity.");
-			  chosen = 1;
-		  }
-		  else
-		  {
-			  ClearScreen();
-		  }
-	  }
+	    printf("You turn to see your sister's face, longing for your father's words not to be true.");
+	    getch();
+	    ClearScreen();
+	    printf("To your despair, you see nothing but your father's partially destroyed castle.");
+	    getch();
+	    ClearScreen();
+	    printf("Father: \"I tried to make us all immortal; however, your sister was too young and your mother was to frail after birthing you.\n I'm sorry %s, I hope you'll forgive me\"", c.name);
+	    getch();
+	    ClearScreen();
+	    printf("You nod your head, letting your father know he is forgiven. You then walk with your father to the edge of the mountain.\n");
+	    getch();
+  	  ClearScreen();
+	    printf("Father: \"Where do you think we should go now %s?\"\n(C)amelot\n(D)istant Lands");
+	    char choice2 = getch();
+	    strcpy(choice2, toupper(choice2));
+	    int chosen = 0;
+	    while (chosen == 0)
+	    {
+		    if (choice2 == 'C')
+		    {
+			    ClearScreen();
+			    printf("You and your father head towards Camelot to right the wrongs he has committed.");
+			    chosen = 1;
+		    }
+		    else if (choice2 == 'D')
+		    {
+			    ClearScreen();
+			    printf("You and your father head towards the distant lands to hide away and explore the world together for an eternity.");
+			    chosen = 1;
+		    }
+		    else
+		    {
+			    ClearScreen();
+		    }
+	    }
 	  ClearScreen();
 	  GameStateManagerSetNextState(GsCredits);
     }
