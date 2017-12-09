@@ -157,7 +157,7 @@ void Chapter1()
   ClearScreen();
 
   printf("Mysterious Girl: \"Oh hey I forgot to ask, what would you like me to call you?\"\n>> ");
-  scanf("%s", name);
+  scanf("%20s", name);
   while (getchar() != '\n');
   *name = toupper(*name);
   strcpy(c.name, name);
@@ -172,7 +172,7 @@ void Chapter1()
     {
       ClearScreen();
       printf("Mysterious Girl: \"Then what would you like to be called?\"\n>>");
-      scanf("%s", name);
+      scanf("%20s", name);
       while (getchar() != '\n');
       *name = toupper(*name);
       strcpy(c.name, name);

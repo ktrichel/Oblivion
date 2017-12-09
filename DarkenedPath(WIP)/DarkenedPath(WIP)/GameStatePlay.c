@@ -114,6 +114,7 @@ void GameStatePlayInit()
 
   if (first == '0')
   {
+    RemoveNewLine(name);
     strcpy(player.name, name);
     player.maxhealth = 10;
     player.health = 10;
