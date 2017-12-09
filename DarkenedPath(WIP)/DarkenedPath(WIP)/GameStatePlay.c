@@ -166,36 +166,36 @@ int getEnemyType(char name[20])
   if (strcmp(name, "Treant") == 0)
   {
     strcpy(drops.drop1, "Enchanted Branch");
-    strcpy(drops.drop2, "Worn Chainmail");
-    strcpy(drops.drop3, "Scratched Helmet");
+    strcpy(drops.drop2, "Enchanted Vest");
+    strcpy(drops.drop3, "Tree Sap");
     return 1;
   }
   if (strcmp(name, "Golem") == 0)
   {
-    strcpy(drops.drop1, "Basic Sword");
-    strcpy(drops.drop2, "Worn Chainmail");
-    strcpy(drops.drop3, "Scratched Helmet");
+    strcpy(drops.drop1, "Sharpening Stone");
+    strcpy(drops.drop2, "Boulder Vest");
+    strcpy(drops.drop3, "Rock Toe Boots");
     return 1;
   }
   if (strcmp(name, "Baby Dragon") == 0)
   {
-    strcpy(drops.drop1, "Basic Sword");
-    strcpy(drops.drop2, "Worn Chainmail");
-    strcpy(drops.drop3, "Scratched Helmet");
+    strcpy(drops.drop1, "Syldrasla");
+    strcpy(drops.drop2, "Dragonscale Vest");
+    strcpy(drops.drop3, "Dragon Wings");
     return 1;
   }
   if (strcmp(name, "Knights") == 0)
   {
-    strcpy(drops.drop1, "Basic Sword");
-    strcpy(drops.drop2, "Worn Chainmail");
-    strcpy(drops.drop3, "Scratched Helmet");
+    strcpy(drops.drop1, "Steel Sword");
+    strcpy(drops.drop2, "Suit of Armor");
+    strcpy(drops.drop3, "Armor Polish");
     return 1;
   }
   if (strcmp(name, "Lieutenant") == 0)
   {
-    strcpy(drops.drop1, "Basic Sword");
-    strcpy(drops.drop2, "Worn Chainmail");
-    strcpy(drops.drop3, "Scratched Helmet");
+    strcpy(drops.drop1, "Vampiric Cloak");
+    strcpy(drops.drop2, "Magic Tome");
+    strcpy(drops.drop3, "Vampire fangs");
     return 1;
   }
 
@@ -281,7 +281,7 @@ void EnemyListInit()
     else if (enemy == 2)
     {
       strcpy(enemy3.name, "Grunt Guard");
-      enemy3.level = 2;
+      enemy3.level = 1;
       EnemyInit(enemy);
     }
     else if (enemy == 3)
@@ -300,19 +300,19 @@ void EnemyListInit()
       if (enemy == 0)
       {
         strcpy(enemy1.name, "Treant");
-        enemy1.level = 1;
+        enemy1.level = player.level - 1;
         EnemyInit(enemy);
       }
       else if (enemy == 1)
       {
         strcpy(enemy2.name, "Unicorn");
-        enemy2.level = 1;
+        enemy2.level = player.level - 1;
         EnemyInit(enemy);
       }
       else if (enemy == 2)
       {
         strcpy(enemy3.name, "Hippogriff");
-        enemy3.level = 2;
+        enemy3.level = player.level - 1;
         EnemyInit(enemy);
       }
       else if (enemy == 3)
@@ -331,19 +331,19 @@ void EnemyListInit()
         if (enemy == 0)
         {
           strcpy(enemy1.name, "Golem");
-          enemy1.level = 1;
+          enemy1.level = player.level - 1;
           EnemyInit(enemy);
         }
         else if (enemy == 1)
         {
           strcpy(enemy2.name, "Manticore");
-          enemy2.level = 1;
+          enemy2.level = player.level - 1;
           EnemyInit(enemy);
         }
         else if (enemy == 2)
         {
           strcpy(enemy3.name, "Harpy");
-          enemy3.level = 2;
+          enemy3.level = player.level - 1;
           EnemyInit(enemy);
         }
         else if (enemy == 3)
@@ -362,19 +362,19 @@ void EnemyListInit()
     if (enemy == 0)
       {
         strcpy(enemy1.name, "Knights");
-        enemy1.level = 1;
+        enemy1.level = player.level - 1;
         EnemyInit(enemy);
       }
     else if (enemy == 1)
       {
         strcpy(enemy2.name, "Gargoyle");
-        enemy2.level = 1;
+        enemy2.level = player.level - 1;
         EnemyInit(enemy);
       }
     else if (enemy == 2)
       {
         strcpy(enemy3.name, "Suit of Armor");
-        enemy3.level = 2;
+        enemy3.level = player.level - 1;
         EnemyInit(enemy);
       }
     else if (enemy == 3)
@@ -564,16 +564,16 @@ void calcDmg()
       }
       else
       {
-        printf("You ready your enchanted sword to fight.\n");
-        printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.");
+        printf("You ready your enchanted branch to fight.\n");
+        printf("Your enemy clearly does not want you in their territory and is ready to defend it.");
       }
     }
     if (c == '2')
     {
       if (strcmp(cEnemy.name, enemy1.name) == 0)
       {
-        printf("You ready the torch you picked up to fight.\n");
-        printf("The grunt is wearing a black tabard with an indistinguishable red insignia and has a rusty sword at the ready.\nIt's clear that he was unprepared for you to be here.\n");
+        printf("You ready the mystical sword you picked up to fight.\n");
+        printf("The golem is misshapen and gigantic, almost the size to squish you with a single stomp.\n");
       }
       else if (strcmp(cEnemy.name, miniBoss.name) == 0)
       {
@@ -582,16 +582,16 @@ void calcDmg()
       }
       else
       {
-        printf("You ready your rusty sword to fight.\n");
-        printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.");
+        printf("You ready your mystical sword to fight.\n");
+        printf("Your enemy clearly does not want you to reach the top of the mountain and is ready to stop you at any cost.");
       }
     }
     if (c == '3')
     {
       if (strcmp(cEnemy.name, enemy1.name) == 0)
       {
-        printf("You ready the torch you picked up to fight.\n");
-        printf("The grunt is wearing a black tabard with an indistinguishable red insignia and has a rusty sword at the ready.\nIt's clear that he was unprepared for you to be here.\n");
+        printf("You ready Syldrasla you picked up to fight.\n");
+        printf("The knights surround you in a circle, but are honorable to fight you one on one.\nThey will not let you pass without a challenge.\n");
       }
       else if (strcmp(cEnemy.name, miniBoss.name) == 0)
       {
@@ -600,16 +600,15 @@ void calcDmg()
       }
       else
       {
-        printf("You ready your rusty sword to fight.\n");
-        printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.");
+        printf("You ready your Steel sword to fight, since Syldrasla seems damaged.\n");
+        printf("Your enemies are clearly aware of your prescence and do not want you to disturb their leader..");
       }
     }
 	  if (c == '4')
 	{
 		if (strcmp(cEnemy.name, enemy1.name) == 0)
 		{
-			printf("You ready Sildrasla you picked up to fight.\n");
-			printf("The grunt is wearing a black tabard with an indistinguishable red insignia and has a rusty sword at the ready.\nIt's clear that he was unprepared for you to be here.\n");
+		
 		}
     else if (strcmp(cEnemy.name, enemy3.name) == 0)
     {
@@ -617,13 +616,11 @@ void calcDmg()
     }
 		else if (strcmp(cEnemy.name, miniBoss.name) == 0)
 		{
-			printf("A figure walks out from behind a tree to stop you in your path.\n Its hair is made out of leaves , its face is covered by some sort of earthen mask, "
-				"\nand its body is covered with branches and a tattered robe. \"Fu herner da jat!\" says the witchly figure.\nYou have a feeling it will not allow you to pass easily."); /*Witch states you shall not pass in jibberish*/
+			printf("Your father is oozing with power and maniacally laughing, waiting for you to strike"); /*Witch states you shall not pass in jibberish*/
 		}
 		else
 		{
-			printf("You ready your rusty sword to fight.\n");
-			printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.");
+
 		}
 	}
   } while (c != EOF);
