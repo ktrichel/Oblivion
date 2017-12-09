@@ -391,13 +391,13 @@ void EnemyListInit()
   }
   else if (c == '4')
   {
-    if (enemy == 0)
+    if (enemy == 3)
     {
-      strcpy(enemy1.name, "Erysichthon");
-      enemy1.level = 10;
+      strcpy(miniBoss.name, "Erysichthon");
+      miniBoss.level = 10;
       EnemyInit(enemy);
     }
-    else if (enemy > 1)
+    else if (enemy > 3)
     {
       cleared = true;
     }
@@ -626,8 +626,9 @@ void calcDmg()
   } while (c != EOF);
   fclose(chp);
 
-  if (strcmp(cEnemy.name, "Erysichthon") == 0)
+  if (strcmp(miniBoss.name, "Erysichthon") == 0)
   {
+    enemy = 3;
     ClearScreen();
     for (int i = 0; i < _countof(battleUI); i++)
     {
