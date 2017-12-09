@@ -383,7 +383,6 @@ void EnemyListInit()
       cleared = true;
     }
   }
-        
 }
 
 void LvlUp()
@@ -613,6 +612,7 @@ void calcDmg()
 
   if (strcmp(cEnemy.name, "Erysichthon") == 0)
   {
+    ClearScreen();
     for (int i = 0; i < _countof(battleUI); i++)
     {
       switch (i)
@@ -642,12 +642,34 @@ void calcDmg()
     while (choice != '1')
     {
       ClearScreen();
-      printf("Press 1 2 or 3\n>>");
+      for (int i = 0; i < _countof(battleUI); i++)
+      {
+        switch (i)
+        {
+        case 3:
+          printf(battleUI[i], player.name, player.level, cEnemy.name, 99);
+          break;
+        case 5:
+          printf(battleUI[i], player.health, player.maxhealth, 99, 99);
+          break;
+        case 7:
+          printf(battleUI[i], player.attack, 99);
+          break;
+        case 9:
+          printf(battleUI[i], player.defense, 99);
+          break;
+        default:
+          printf(battleUI[i]);
+          break;
+        }
+      }
+
+      printf("Press 1\n>>");
       choice = getch();
     }
 
-    printf("You swing at your father with Syldrasla and with a mighty cry as the silver sword burns at his vampiric nature, your father falls to the ground");
-
+    ClearScreen();
+    printf("\n");
     for (int i = 0; i < _countof(battleUI); i++)
     {
       switch (i)
@@ -669,6 +691,10 @@ void calcDmg()
         break;
       }
     }
+
+    printf("You swing at your father with Syldrasla and with a mighty cry, as the silver sword burns at his vampiric nature, your father falls to the ground");
+    getch();
+    cleared = true;
     return;
   }
   else
@@ -687,7 +713,28 @@ void calcDmg()
 		  while (choice != '1' && choice != '2' && choice != '3')
 		  {
 			  ClearScreen();
-			  printf("Press 1 2 or 3\n>>");
+        for (int i = 0; i < _countof(battleUI); i++)
+        {
+          switch (i)
+          {
+          case 3:
+            printf(battleUI[i], player.name, player.level, cEnemy.name, cEnemy.level);
+            break;
+          case 5:
+            printf(battleUI[i], player.health, player.maxhealth, cEnemy.health, cEnemy.maxhealth);
+            break;
+          case 7:
+            printf(battleUI[i], player.attack, cEnemy.attack);
+            break;
+          case 9:
+            printf(battleUI[i], player.defense, cEnemy.defense);
+            break;
+          default:
+            printf(battleUI[i]);
+            break;
+          }
+        }
+        printf("Press 1 2 or 3\n>>");
 			  choice = getch();
 		  }
 
