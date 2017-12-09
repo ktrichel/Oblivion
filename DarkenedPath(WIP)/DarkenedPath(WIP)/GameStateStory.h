@@ -43,7 +43,7 @@ extern "C" {	/* Assume C declarations for C++ */
 
   void Mini4();
 
-  void Parent();
+  void Father();
 
   void Epilogue();
 
