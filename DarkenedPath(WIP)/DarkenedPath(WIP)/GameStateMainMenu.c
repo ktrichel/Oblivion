@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 \file   GameStateMainMenu.c
-\author Kyle Trichel and Drake Mathis and DAvid Rodriguez
+\author Kyle Trichel and David Rodriguez
 \par    Course: GAM100F17
 \par    Copyright © 2016 DigiPen (USA) Corporation.
 \brief
@@ -42,6 +42,20 @@ struct CHARACTER player;
 
 void GameStateMainMenuInit()
 {
+  /*------------------------------------------------------------------------------
+  // Setting Windows Console Size
+  //----------------------------------------------------------------------------*/
+  HWND console = GetConsoleWindow();
+
+  system("mode 188,50");   //Set mode to ensure window does not exceed buffer size
+  SMALL_RECT WinRect = { 0, 0, 188, 50 };   //New dimensions for window in 8x12 pixel chars
+  SMALL_RECT* WinSize = &WinRect;
+  SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), true, WinSize);   //Set new size for window
+
+  HWND consoleWindow = GetConsoleWindow();
+
+  SetWindowPos(consoleWindow, 0, -4, -4, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+
   FILE *chp;
   chp = fopen("chp.txt", "w");
   if (chp == NULL)
@@ -66,13 +80,26 @@ void GameStateMainMenuInit()
   fclose(fT);
 
 	/* Display the name of your text adventure as simple text or ASCII graphics. */
-	printf("Darkened Path\n");
+  FILE *title = fopen("GameStateTitleScreen.txt", "r");
+  char *s[162];
+  if (title == NULL)
+  {
+    printf("Cannot open file for reading.\n");
+    exit(0);
+  }
+
+  while (fgets(s, 162, title))
+  {
+    printf("%s", s);
+  }
+
+  fclose(title);
 
 		/* Display the following main menu options: */
 		/*   Select an option: */
 		/*     (P)lay */
 		/*     (Q)uit */
-		printf("Select an option:\n(P)lay\n(C)redits\n(Q)uit\n");
+		printf("\nSelect an option:\n(P)lay\n(C)redits\n(Q)uit\n");
 
 }
 
