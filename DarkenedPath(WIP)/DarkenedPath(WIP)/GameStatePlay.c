@@ -383,30 +383,6 @@ void EnemyListInit()
       cleared = true;
     }
   }
-        /*getEnemyType(enemy1.name);
-        strcpy(enemy1.drop1, drop1);
-        printf("%s", enemy1.drop1);
-        strcpy(enemy1.drop2, drop2);
-        printf("%s", enemy1.drop2);
-        strcpy(enemy1.drop3, drop3);
-        printf("%s", enemy1.drop3);
-
-        getEnemyType(enemy1.name);
-        strcpy(enemy1.drop1, drop1);
-        printf("%s", enemy1.drop1);
-        strcpy(enemy1.drop2, drop2);
-        printf("%s", enemy1.drop2);
-        strcpy(enemy1.drop3, drop3);
-        printf("%s", enemy1.drop3);
-        strcpy(enemy3.name, "Grunt");
-
-        getEnemyType(enemy1.name);
-        strcpy(enemy1.drop1, drop1);
-        printf("%s", enemy1.drop1);
-        strcpy(enemy1.drop2, drop2);
-        printf("%s", enemy1.drop2);
-        strcpy(enemy1.drop3, drop3);
-        printf("%s", enemy1.drop3);*/
         
 }
 
@@ -526,21 +502,6 @@ void calcDmg()
   char choice;
   int r;
   srand(time(NULL));
-  /*r = (rand() % 3) + 1;
-  char loot[20];
-
-  switch (r)
-  {
-  case 1:
-  strcpy(loot, enemy1.drop1);
-  break;
-  case 2:
-  strcpy(loot, enemy1.drop2);
-  break;
-  case 3:
-  strcpy(loot, enemy1.drop3);
-  break;
-  }*/
 
   FILE *chp;
   chp = fopen("chp.txt", "r");
