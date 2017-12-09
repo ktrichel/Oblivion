@@ -20,8 +20,8 @@ void GameStateCreditsInit()
 	//----------------------------------------------------------------------------*/
 	HWND console = GetConsoleWindow();
 
-  system("mode 239,65");   //Set mode to ensure window does not exceed buffer size
-  SMALL_RECT WinRect = { 0, 0, 239, 65 };   //New dimensions for window in 8x12 pixel chars
+  system("mode 240,63");   //Set mode to ensure window does not exceed buffer size
+  SMALL_RECT WinRect = { 0, 0, 240, 63 };   //New dimensions for window in 8x12 pixel chars
   SMALL_RECT* WinSize = &WinRect;
   SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), true, WinSize);   //Set new size for window
 
@@ -72,7 +72,7 @@ void GameStateCreditsUpdate(float dt)
   UNREFERENCED_PARAMETER(dt);
 
   /* Print the message "Press ENTER to continue..." to the screen. */
-  printf("Press any button to continue...");
+  printf("\nPress any button to continue...");
 
   /* Wait for the user to press ENTER. */
   getch();

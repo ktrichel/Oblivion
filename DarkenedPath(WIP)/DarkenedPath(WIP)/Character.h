@@ -16,7 +16,7 @@ extern "c" {	/* assume c declarations for c++ */
 
 	struct CHARACTER
 	{
-		char name[20];
+		char name[21];
 		int health;
     int maxhealth;
 		int defense;
