@@ -585,104 +585,170 @@ void calcDmg()
         printf("You ready your rusty sword to fight.\n");
         printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.");
       }
-      if (c == '4')
-      {
-        if (strcmp(cEnemy.name, enemy1.name) == 0)
-        {
-          printf("You ready Sildrasla you picked up to fight.\n");
-          printf("The grunt is wearing a black tabard with an indistinguishable red insignia and has a rusty sword at the ready.\nIt's clear that he was unprepared for you to be here.\n");
-        }
-        else if (strcmp(cEnemy.name, miniBoss.name) == 0)
-        {
-          printf("A figure walks out from behind a tree to stop you in your path.\n Its hair is made out of leaves , its face is covered by some sort of earthen mask, "
-            "\nand its body is covered with branches and a tattered robe. \"Fu herner da jat!\" says the witchly figure.\nYou have a feeling it will not allow you to pass easily."); /*Witch states you shall not pass in jibberish*/
-        }
-        else
-        {
-          printf("You ready your rusty sword to fight.\n");
-          printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.");
-        }
-      }
     }
+	  if (c == '4')
+	{
+		if (strcmp(cEnemy.name, enemy1.name) == 0)
+		{
+			printf("You ready Sildrasla you picked up to fight.\n");
+			printf("The grunt is wearing a black tabard with an indistinguishable red insignia and has a rusty sword at the ready.\nIt's clear that he was unprepared for you to be here.\n");
+		}
+    else if (strcmp(cEnemy.name, enemy3.name) == 0)
+    {
+
+    }
+		else if (strcmp(cEnemy.name, miniBoss.name) == 0)
+		{
+			printf("A figure walks out from behind a tree to stop you in your path.\n Its hair is made out of leaves , its face is covered by some sort of earthen mask, "
+				"\nand its body is covered with branches and a tattered robe. \"Fu herner da jat!\" says the witchly figure.\nYou have a feeling it will not allow you to pass easily."); /*Witch states you shall not pass in jibberish*/
+		}
+		else
+		{
+			printf("You ready your rusty sword to fight.\n");
+			printf("Your enemy clearly heard the alarm and seems more prepared than whom you just faced.");
+		}
+	}
   } while (c != EOF);
   fclose(chp);
 
-  if (player.health > 0)
+  if (strcmp(cEnemy.name, "Erysichthon") == 0)
   {
-    if (cEnemy.health <= 0)
-    {
-      goto DEAD;
-    }
-
-    printf("You have three options:\n1: Normal Strike\n2. Heavy Strike (Strong hit, minus health)\n3. Dodge (Heal)\n>>");
-
-    //player choice
-    choice = getch();
-    while (choice != '1' && choice != '2' && choice != '3')
-    {
-      ClearScreen();
-      printf("Press 1 2 or 3\n>>");
-      choice = getch();
-    }
-
-    switch (choice)
-    {
-    case '1':
-      printf("\nYou strike the %s\n", cEnemy.name);
-      cEnemy.health = cEnemy.health - (player.attack - cEnemy.defense);
-      break;
-    case '2':
-      printf("\nYou swing at %s with all your might\n", cEnemy.name);
-      cEnemy.health = cEnemy.health - ((player.attack + 1) - cEnemy.defense);
-      player.health -= ceil((double)player.maxhealth / 5);
-      break;
-    case '3':
-      printf("\nYou attempt to dodge the next attack\n");
-      player.health += ceil((double)player.defense / 2);
-      break;
-    }
-
-    if (player.health > player.maxhealth)
-    {
-      player.health = player.maxhealth;
-    }
-  }
-
-  else if (player.health <= 0)
-  {
-    player.health = 0;
-
-    ClearScreen();
-
     for (int i = 0; i < _countof(battleUI); i++)
     {
       switch (i)
       {
       case 3:
-        printf(battleUI[i], player.name, player.level, cEnemy.name, cEnemy.level);
+        printf(battleUI[i], player.name, player.level, cEnemy.name, 99);
         break;
       case 5:
-        printf(battleUI[i], player.health, player.maxhealth, cEnemy.health, cEnemy.maxhealth);
+        printf(battleUI[i], player.health, player.maxhealth, 99, 99);
         break;
       case 7:
-        printf(battleUI[i], player.attack, cEnemy.attack);
+        printf(battleUI[i], player.attack, 99);
         break;
       case 9:
-        printf(battleUI[i], player.defense, cEnemy.defense);
+        printf(battleUI[i], player.defense, 99);
         break;
       default:
         printf(battleUI[i]);
         break;
       }
     }
-    printf("You have been defeated by %s\n", cEnemy.name);
-    getch();
 
-    dead = true;
+    printf("You have one option:\n1: Attack\n>>");
+
+    //player choice
+    choice = getch();
+    while (choice != '1')
+    {
+      ClearScreen();
+      printf("Press 1 2 or 3\n>>");
+      choice = getch();
+    }
+
+    printf("You swing at your father with Syldrasla and with a mighty cry as the silver sword burns at his vampiric nature, your father falls to the ground");
+
+    for (int i = 0; i < _countof(battleUI); i++)
+    {
+      switch (i)
+      {
+      case 3:
+        printf(battleUI[i], player.name, player.level, cEnemy.name, 99);
+        break;
+      case 5:
+        printf(battleUI[i], player.health, player.maxhealth, 0, 99);
+        break;
+      case 7:
+        printf(battleUI[i], player.attack, 99);
+        break;
+      case 9:
+        printf(battleUI[i], player.defense, 99);
+        break;
+      default:
+        printf(battleUI[i]);
+        break;
+      }
+    }
     return;
   }
+  else
+  {
+	  if (player.health > 0)
+	  {
+		  if (cEnemy.health <= 0)
+		  {
+			  goto DEAD;
+		  }
 
-  Wait(500);
+		  printf("You have three options:\n1: Normal Strike\n2. Heavy Strike (Strong hit, minus health)\n3. Dodge (Heal)\n>>");
+
+		  //player choice
+		  choice = getch();
+		  while (choice != '1' && choice != '2' && choice != '3')
+		  {
+			  ClearScreen();
+			  printf("Press 1 2 or 3\n>>");
+			  choice = getch();
+		  }
+
+		  switch (choice)
+		  {
+		  case '1':
+			  printf("\nYou strike the %s\n", cEnemy.name);
+			  cEnemy.health = cEnemy.health - (player.attack - cEnemy.defense);
+			  break;
+		  case '2':
+			  printf("\nYou swing at %s with all your might\n", cEnemy.name);
+			  cEnemy.health = cEnemy.health - ((player.attack + 1) - cEnemy.defense);
+			  player.health -= ceil((double)player.maxhealth / 5);
+			  break;
+		  case '3':
+			  printf("\nYou attempt to dodge the next attack\n");
+			  player.health += ceil((double)player.defense / 2);
+			  break;
+		  }
+
+		  if (player.health > player.maxhealth)
+		  {
+			  player.health = player.maxhealth;
+		  }
+	  }
+
+	  else if (player.health <= 0)
+	  {
+		  player.health = 0;
+
+		  ClearScreen();
+
+		  for (int i = 0; i < _countof(battleUI); i++)
+		  {
+			  switch (i)
+			  {
+			  case 3:
+				  printf(battleUI[i], player.name, player.level, cEnemy.name, cEnemy.level);
+				  break;
+			  case 5:
+				  printf(battleUI[i], player.health, player.maxhealth, cEnemy.health, cEnemy.maxhealth);
+				  break;
+			  case 7:
+				  printf(battleUI[i], player.attack, cEnemy.attack);
+				  break;
+			  case 9:
+				  printf(battleUI[i], player.defense, cEnemy.defense);
+				  break;
+			  default:
+				  printf(battleUI[i]);
+				  break;
+			  }
+		  }
+		  printf("You have been defeated by %s\n", cEnemy.name);
+		  getch();
+
+		  dead = true;
+		  return;
+	  }
+
+	  Wait(500);
 
   DEAD:if (cEnemy.health <= 0)
   {
@@ -722,39 +788,39 @@ void calcDmg()
     LvlUp();
   }
 
-  if (cEnemy.health > 0)
-  {
+	   if (cEnemy.health > 0)
+	   {
 
-    /*enemy choice */
-    r = (rand() % 3) + 1;
-    switch (r)
-    {
-    case 1:
-      printf("The %s slashes at you\n", cEnemy.name);
-      player.health = player.health - (cEnemy.attack - player.defense);
-      break;
-    case 2:
-      printf("The %s swings a heavy blow at you\n", cEnemy.name);
-      player.health = player.health - ((cEnemy.attack + 1) - player.defense);
-      cEnemy.health -= ceil((double)cEnemy.maxhealth / 5);
-      break;
-    case 3:
-      printf("The %s tries to dodge your attack\n", cEnemy.name);
-      cEnemy.health += ceil((double)cEnemy.defense / 2);
-      break;
-    }
+		   /*enemy choice */
+		   r = (rand() % 3) + 1;
+		   switch (r)
+		   {
+		   case 1:
+			   printf("The %s slashes at you\n", cEnemy.name);
+			   player.health = player.health - (cEnemy.attack - player.defense);
+			   break;
+		   case 2:
+			   printf("The %s swings a heavy blow at you\n", cEnemy.name);
+			   player.health = player.health - ((cEnemy.attack + 1) - player.defense);
+			   cEnemy.health -= ceil((double)cEnemy.maxhealth / 5);
+			   break;
+		   case 3:
+			   printf("The %s tries to dodge your attack\n", cEnemy.name);
+			   cEnemy.health += ceil((double)cEnemy.defense / 2);
+			   break;
+		   }
 
-    if (cEnemy.health > cEnemy.maxhealth)
-    {
-      cEnemy.health = cEnemy.maxhealth;
-    }
+		   if (cEnemy.health > cEnemy.maxhealth)
+		   {
+			   cEnemy.health = cEnemy.maxhealth;
+		   }
 
-    getch();
-    BattleUI();
+		   getch();
+		   BattleUI();
 
-    return;
+		   return;
+	   }
   }
-
 }
 
 void BattleUI()
