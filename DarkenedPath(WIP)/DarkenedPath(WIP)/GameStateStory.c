@@ -122,7 +122,7 @@ void GameStateStoryUpdate(float dt)
     Chapter4();
     break;
   case 4:
-    Parent();
+    Father();
     break;
   case 5:
     Epilogue();
@@ -314,7 +314,7 @@ void Mini4()
   GameStateManagerSetNextState(GsPlay);
 }
 
-void Parent()
+void Father()
 {
   ClearScreen();
   printf("You enter the room and see your father, he is also pale, toned, and has red-eyes; however, \nit looks as if he hasn't aged past 20 and he looks more elegant than who you just faced.");
@@ -340,11 +340,9 @@ void Epilogue()
   getch();
   ClearScreen();
   printf("\"I'm sorry for having you be alone. I was not able to turn your sister and mother like I was for you. \nI had your older brother be my lieutenant while I waited for you to mature because I knew you had it in you.\n"
-         "Finish me and show me you have what it takes to dominate the kingdom that wants nothing but chaos in the world!\"\n(Finish) your father and give him the rest he deserves.\n(Show) him there's another way of doing this.\n>>");
+         "Finish me and show me you have what it takes to dominate the kingdom that wants nothing but chaos in the world!\"\n(Finish) your father and give him the rest he deserves.\n(Show) him there's another way of doing this.\n>>"); 
   
-  int chosen = 0;
-  
-  while (chosen == 0)
+  while (0 == 0)
   {
     char choice[6] = { "" };
     gets(choice);
@@ -371,8 +369,7 @@ void Epilogue()
       printf("Your curiosity of the world draws you towards the nearest castle you can see, in order to study the people\nand prove to yourself that your father was wrong about the kingdom.");
       getch();
       ClearScreen();
-     // GameStateManagerSetNextState(GsCredits);
-      chosen = 1;
+      GameStateManagerSetNextState(GsCredits);
     }
     else if (strcmp(choice, "SHOW") == 0)
     {
@@ -380,10 +377,44 @@ void Epilogue()
       printf("You grab your father's hand and bring him to his feet. You embrace your father with a hug that would last for an eternity.");
       getch();
       ClearScreen();
-      printf("");
+      printf("Sister: \"I knew you could bring him away from his darkened path. Thank you...\"");
       getch();
       ClearScreen();
-      chosen = 1;
+	  printf("You turn to see your sister's face, longing for your father's words not to be true.");
+	  getch();
+	  ClearScreen();
+	  printf("To your despair, you see nothing but your father's partially destroyed castle.");
+	  getch();
+	  ClearScreen();
+	  printf("Father: \"I tried to make us all immortal; however, your sister was too young and your mother was to frail after birthing you.\n I'm sorry %s, I hope you'll forgive me\"", c.name);
+	  getch();
+	  ClearScreen();
+	  printf("You nod your head, letting your father know he is forgiven. You then walk with your father to the edge of the mountain.\n");
+	  getch();
+	  ClearScreen();
+	  printf("Father: \"Where do you think we should go now %s?\"\n(C)amelot\n(D)istant Lands");
+	  char choice2 = getch();
+	  strcpy(choice2, toupper(choice2));
+	  int chosen = 0;
+	  while (chosen == 0)
+	  {
+		  if (choice2 == 'C')
+		  {
+			  ClearScreen();
+			  chosen = 1;
+		  }
+		  else if (choice2 == 'D')
+		  {
+			  ClearScreen();
+			  chosen = 1;
+		  }
+		  else
+		  {
+			  ClearScreen();
+		  }
+	  }
+	  ClearScreen();
+	  GameStateManagerSetNextState(GsCredits);
     }
     else if (strcmp(choice, "REPLAY") == 0)
     {
