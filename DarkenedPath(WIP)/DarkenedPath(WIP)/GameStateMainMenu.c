@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 \file   GameStateMainMenu.c
-\author Kyle Trichel and Drake Mathis
+\author Kyle Trichel and Drake Mathis and DAvid Rodriguez
 \par    Course: GAM100F17
 \par    Copyright © 2016 DigiPen (USA) Corporation.
 \brief
