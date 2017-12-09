@@ -401,11 +401,13 @@ void Epilogue()
 		  if (choice2 == 'C')
 		  {
 			  ClearScreen();
+			  printf("You and your father head towards Camelot to right the wrongs he has committed.");
 			  chosen = 1;
 		  }
 		  else if (choice2 == 'D')
 		  {
 			  ClearScreen();
+			  printf("You and your father head towards Camelot to hide away and explore the world together for an eternity.");
 			  chosen = 1;
 		  }
 		  else
